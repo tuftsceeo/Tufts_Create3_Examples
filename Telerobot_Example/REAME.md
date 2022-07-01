@@ -1,6 +1,6 @@
 # Teleoperation & Teleprescence with the iRobot® Create® 3
 
-In this example, you will learn to control a Create® 3 robot with the keyboard on your laptop. Being able to control the robot from a distance makes it teleoperational. To make it have telepresence, design a phone stand that can attach to the Create® 3. Facetime or Zoom into your phone so you can see the environment where you are driving the robot. This allows you to feel present as your robot navigates around. 
+In this example, you will learn to control a Create® 3 robot with the keyboard on your laptop. Being able to control the robot from a distance makes it teleoperational. To make it have telepresence, design a phone stand that can attach to the top of the Create® 3 robot. Facetime or Zoom into your phone so you can see the environment where you are driving the robot. This allows you to feel present as your robot navigates around. 
 
 ## ROS2 Commands 
 
