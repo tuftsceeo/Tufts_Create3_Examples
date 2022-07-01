@@ -1,6 +1,6 @@
 # Tufts_Create3_Examples
 
-Welcome! In this repo we (some undergrad mechanical engineering students at Tuft's University) aim to help you master the iRobot® Create® 3 Educational Robot through code examples and design challenges. To control the Create® 3 robot we will use ROS2 Galactic and the Python Client Library. Please follow the directions written [here](https://iroboteducation.github.io/create3_docs/setup/ubuntu2004/) to set up ROS2 if you have not already.  
+Welcome! In this repo we (some undergrad mechanical engineering students at Tufts University) aim to help you master the iRobot® Create® 3 Educational Robot through code examples and design challenges. To control the Create® 3 robot we will use ROS2 Galactic and the Python Client Library. Please follow the directions written [here](https://iroboteducation.github.io/create3_docs/setup/ubuntu2004/) to set up ROS2 if you have not already.  
 
 
 ### Generally Important Information 
