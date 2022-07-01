@@ -19,7 +19,7 @@ setup(
     license='BSD-3',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['Pub_Light_Pattern = Mini-Examples_Library.Pub_Light_Pattern:main'
+        'console_scripts': ['pub_light_pattern = mini_examples_library.pub_light_pattern:main'
         ],
     },
 )
