@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'Mini-Examples_Library'
+package_name = 'mini_examples_library'
 
 setup(
     name=package_name,
