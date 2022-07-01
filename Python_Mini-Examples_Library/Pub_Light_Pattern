@@ -1,0 +1,9 @@
+#Publish Light Patterns
+#Tufts University Examples for iRobot® Create® 3 Educational Robot
+#July 2022
+
+
+import sys
+import rclpy
+from rclpy.node import Node
+
