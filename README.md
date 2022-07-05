@@ -15,4 +15,4 @@ becomes
 ```
 ros2 topic echo /JonSnow/battery_state
 ```
-when you run it in your terminal. 
+when you run it in your terminal.
