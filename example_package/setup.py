@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'example_py'
+package_name = 'example_package'
 
 setup(
     name=package_name,
@@ -19,7 +19,7 @@ setup(
     license='BSD-3',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['test_executable = example_py.pub_LED:main', 'test_executable_2 = example_py.bump_color_rotate:main', 'test_executable_3 = example_py.wheel_chime:main','mid_summer_demo = example_py.mid_summer_demo:main'
+        'console_scripts': ['test_executable_2 = example_package.bump_color_rotate:main',
         ],
     },
 )
