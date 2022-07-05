@@ -15,7 +15,7 @@ ros2 param set /[Namespace]/motion_control safety_override full
 Then we can run the teleop_twist_keyboard package that is already in the ROS2 environment. 
 
 ```
-ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --ros-args -r __ns:=/[Namespace]
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --ros-args -r __ns:=/{Namespace}
 ```
 
 ## What You'll See
