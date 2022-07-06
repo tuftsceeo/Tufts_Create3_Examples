@@ -19,7 +19,7 @@ setup(
     license='BSD-3',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['test_executable_2 = example_package.bump_color_rotate:main',
+        'console_scripts': ['test_executable_2 = example_package.bump_color_rotate:main','pub_example = example_package.pub_example:main'
         ],
     },
 )
