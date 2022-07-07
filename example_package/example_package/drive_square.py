@@ -33,20 +33,20 @@ class DriveDistanceActionClient(Node):
             self, DriveDistance, 'Ygritte/drive_distance')
 
     def send_goal(self, distance=0.5, max_translation_speed=0.15):
-        '''
-        1. This method waits for the action server to be available.
-        '''
+
         goal_msg = DriveDistance.Goal()
         goal_msg.distance = distance
         goal_msg.max_translation_speed = max_translation_speed
-
+        '''
+        This method waits for the action server to be available.
+        '''
         self._action_client.wait_for_server()
         '''
-        2. Sends a goal to the server.
+        Sends a goal to the server.
         '''
         self._send_goal_future = self._action_client.send_goal_async(goal_msg)
         '''
-        3. Returns a future to a goal handle. We need to register a callback 
+        Returns a future to a goal handle. We need to register a callback 
         for when the future is complete.
         '''
         self._send_goal_future.add_done_callback(self.goal_response_callback)
@@ -110,20 +110,20 @@ class RotateActionClient(Node):
         self._action_client = ActionClient(self, RotateAngle, 'Ygritte/rotate_angle')
 
     def send_goal(self, angle=1.57, max_rotation_speed=0.5):
-        '''
-        1. This method waits for the action server to be available.
-        '''
+
         goal_msg = RotateAngle.Goal()
         goal_msg.angle = angle 
         goal_msg.max_rotation_speed = max_rotation_speed
-
+        '''
+        This method waits for the action server to be available.
+        '''
         self._action_client.wait_for_server()
         '''
-        2. Sends a goal to the server.
+        Sends a goal to the server.
         '''        
         self._send_goal_future = self._action_client.send_goal_async(goal_msg)
         '''
-        3. Returns a future to a goal handle. We need to register a callback 
+        Returns a future to a goal handle. We need to register a callback 
         for when the future is complete.
         '''        
         self._send_goal_future.add_done_callback(self.goal_response_callback)
@@ -168,31 +168,33 @@ def forward(args=None):
     'DriveDistanceActionClient'
     '''
     rclpy.init(args=args)
-    action_client1 = DriveDistanceActionClient() 
+    action_client = DriveDistanceActionClient() 
     '''
     Sends a goal and waits until goal is done.
     '''
-    action_client1.send_goal(dist, speed)
-    rclpy.spin(action_client1)
+    action_client.send_goal(dist, speed)
+    rclpy.spin(action_client)
+    '''
+    This wait statement is not necessary,
+    I just added it to slow down the process.
+    '''
     time.sleep(0.5)
     
 def turn(args=None):
     angle = 1.57
-    speed = 0.5
-   
+    speed = 0.5   
     '''
     Initializes ROS2 and creates an instance of 
     'RotateActionClient'
     '''
     rclpy.init(args=args)
-    action_client2 = RotateActionClient()
+    action_client = RotateActionClient()
     '''
     Sends a goal and waits until goal is done.
     '''
-    action_client2.send_goal(angle, speed)
-    rclpy.spin(action_client2)
+    action_client.send_goal(angle, speed)
+    rclpy.spin(action_client)
     time.sleep(0.5)   
-
 
 def main(args=None):
     '''
