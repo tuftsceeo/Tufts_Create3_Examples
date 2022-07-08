@@ -1,6 +1,6 @@
 ''' 
 action_drive_square_2
-Tufts Create3 Example
+Tufts Create®3 example
 by Maddie Pero
 
 This is an example of combining two action clients in one class. To learn how to write mulitple classes
