@@ -1,9 +1,9 @@
 '''
 pub_lightring.py
 Tufts Create®3 Examples
-byMaddie Pero 
+by Maddie Pero 
 
-In this example we will publish random colors to the LED ring on the Create®3 
+In this example we will publish random colors to the LED ring on the Create®3.
 '''
 
 '''
