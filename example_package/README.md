@@ -19,6 +19,6 @@ source install/setup.bash
 ```
 ros2 run example_package [executable name]
 ```
-The executable names are : subscriber , publisher , action , action2 , and combined. They can be found in the setup.py file. 
+The executable names are : subscribe , publishe , action , action2 , and combined. They can be found in the setup.py file. 
 
 For more information about how to build and run packages in ROS2 go [here](https://katewujciak.wixsite.com/projectcreate/running-py-files-with-ros2).
