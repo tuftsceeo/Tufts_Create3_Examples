@@ -15,7 +15,7 @@ from rclpy.node import Node
 import random
 
 '''
-These statements import iRobot Create®3 messages.
+These statements import iRobot Create®3 messages and actions.
 '''
 from irobot_create_msgs.msg import LedColor
 from irobot_create_msgs.msg import LightringLeds
