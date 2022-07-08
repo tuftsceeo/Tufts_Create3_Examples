@@ -1,6 +1,6 @@
 '''
 combined_audio_bump
-Tufts Create3 Examples
+Tufts Create®3 example
 by Maddie Pero 
 
 This script is an example of how to combine a subscriber, publisher and an action client under one class. 
