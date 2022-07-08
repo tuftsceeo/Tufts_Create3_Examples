@@ -60,13 +60,12 @@ This defines the class' constructor.
         Queue size is a quality of service setting that limiits amount of queued messages.
         Basically, we are determining what type of data we want to publish. 
         '''
-        self.lights_publisher = self.create_publisher(        #initialize the publisher 
-            LightringLeds, namespace + '/cmd_lightring', 10)
+        self.lights_publisher = self.create_publisher(LightringLeds, namespace + '/cmd_lightring', 10)
         
         '''
         The timer allows the callback to execute every 2 seconds, with a counter iniitialized.
         '''
-        timer_period = 2 # seconds
+        timer_period = 2
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.lightring = LightringLeds()
         self.lightring.override_system = True
@@ -78,7 +77,7 @@ This defines the class' constructor.
         The colors and timer are then published. 
         '''
         
-        all_colors = [self.cp.white, self.cp.red, self.cp.green, self.cp.blue, self.cp.yellow, self.cp.pink, self.cp.cyan, self.cp.purple, self.cp.grey] #define all the color choices
+        all_colors = [self.cp.white, self.cp.red, self.cp.green, self.cp.blue, self.cp.yellow, self.cp.pink, self.cp.cyan, self.cp.purple, self.cp.grey]
         led_colors = [random.choice(all_colors), random.choice(all_colors),random.choice(all_colors),random.choice(all_colors), random.choice(all_colors), random.choice(all_colors)]
         
         current_time = self.get_clock().now()
