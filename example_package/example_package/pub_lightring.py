@@ -1,22 +1,32 @@
-#Publish to a Topic Example
-#Tufts Create3 Examples
-#Maddie Pero 
+'''
+pub_lightring.py
+Tufts Create®3 Examples
+byMaddie Pero 
 
-#In this example we will publish random colors to the led ring on the Create3 
+In this example we will publish random colors to the LED ring on the Create®3 
+'''
 
-#import global modules
+'''
+These statements allow the Node class to be used.
+'''
 import sys
 import rclpy
 from rclpy.node import Node
 import random
 
-#import iRobot Create3 messages
+'''
+These statements import iRobot Create®3 messages.
+'''
 from irobot_create_msgs.msg import LedColor
 from irobot_create_msgs.msg import LightringLeds
 
 
 
-class ColorPalette():      #define a class of frequently used colors for easy access 
+class ColorPalette():      
+'''
+This class defines a class of frequently used colors for easy access later on in the script.
+It is essentially converting RGB values to common colors.
+'''
     def __init__(self):
         self.red = LedColor(red=255, green=0, blue=0)
         self.green = LedColor(red=0, green=255, blue=0)
@@ -31,22 +41,44 @@ class ColorPalette():      #define a class of frequently used colors for easy ac
         self.tufts_brown = LedColor(red=94, green=75, blue=60)
 
 class LEDPublisher(Node):
-    def __init__(self, namespace: str = "[Namespace]"):     
+'''
+This defines the class' constructor.
+'''
+    def __init__(self, namespace: str = "[Namespace]"):    
+        '''
+        The following line calls the Node class's constructor and gives it the Node name,
+        which is 'led_publisher.'
+        '''
         super().__init__('led_publisher')
 
         self.cp = ColorPalette()
+        
+        '''
+        We are declaring how we want the Node to publish message. We've imported LightringLeds
+        from irobot_create_msgs.msg over the topic '/cmd_lightring' with a queue size of 10.
+        Queue size is a quality of service setting that limiits amount of queued messages.
+        Basically, we are determining what type of data we want to publish. 
+        '''
         self.lights_publisher = self.create_publisher(        #initialize the publisher 
             LightringLeds, namespace + '/cmd_lightring', 10)
-
+        
+        '''
+        The timer allows the callback to execute every 2 seconds, with a counter iniitialized.
+        '''
         timer_period = 2 # seconds
-        self.timer = self.create_timer(timer_period, self.timer_callback) #create a timer 
+        self.timer = self.create_timer(timer_period, self.timer_callback)
         self.lightring = LightringLeds()
         self.lightring.override_system = True
 
-    def timer_callback(self):                     #this function will get called every 2 seconds 
-        all_colors = [self.cp.white, self.cp.red, self.cp.green, self.cp.blue, self.cp.yellow, self.cp.pink, self.cp.cyan, self.cp.purple, self.cp.grey] #define all the color choices
+    def timer_callback(self):
+        '''
+        In this function we have an array of all the LED colors we want, and then a 
+        randomized list of those colors. 
+        The colors and timer are then published. 
+        '''
         
-        led_colors = [random.choice(all_colors), random.choice(all_colors),random.choice(all_colors),random.choice(all_colors), random.choice(all_colors), random.choice(all_colors)] #randomly choose colors to publish 
+        all_colors = [self.cp.white, self.cp.red, self.cp.green, self.cp.blue, self.cp.yellow, self.cp.pink, self.cp.cyan, self.cp.purple, self.cp.grey] #define all the color choices
+        led_colors = [random.choice(all_colors), random.choice(all_colors),random.choice(all_colors),random.choice(all_colors), random.choice(all_colors), random.choice(all_colors)]
         
         current_time = self.get_clock().now()
 
@@ -54,7 +86,10 @@ class LEDPublisher(Node):
         self.lightring.header.stamp = current_time.to_msg()
         self.lights_publisher.publish(self.lightring)
 
-    def reset(self):  #release control of the lights back to the robot
+    def reset(self):
+    '''
+    This function releases contriol of the lights and "gives" it back to the robot. 
+    '''
         self.lightring.override_system = False
         white = [self.cp.white, self.cp.white, self.cp.white,
                  self.cp.white, self.cp.white, self.cp.white]
@@ -64,10 +99,19 @@ class LEDPublisher(Node):
 
 
 def main(args=None):
+    '''
+    The rclpy library is initialized.
+    '''
     rclpy.init(args=args)
-
+    
+    '''
+    The node is created and can be used in other parts of the script.
+    '''
     led_publisher = LEDPublisher()
 
+    '''
+    The node is "spun" so the callbacks can be called.
+    '''
     try:
         rclpy.spin(led_publisher)
     except KeyboardInterrupt:
