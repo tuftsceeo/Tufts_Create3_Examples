@@ -1,5 +1,5 @@
 '''
-combined_audio_bump
+combined_audio_bump.py
 Tufts Create®3 example
 by Maddie Pero 
 
@@ -41,7 +41,7 @@ class Bump_Sound(Node):
     an audio note. We are defining a class "Bump_Sound" which is a subclass of Node. 
     '''
               
-    def __init__(self, namespace: str = '/JonSnow'):
+    def __init__(self, namespace: str = '/[Namespace]'):
     	'''
     	We initialize the class by calling the Node constructor then naming our node 'bump_sound'
     	'''
