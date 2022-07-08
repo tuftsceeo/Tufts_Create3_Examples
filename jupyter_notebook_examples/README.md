@@ -7,7 +7,7 @@ a. Install Jupyter Notebook in Terminal:
 python3 -m pip install jupyter
 ```
 
-** If you have or plan to only download the Jupyter Notebook examples, see Part A below. If you have or plan to download the entire Tufts Create 3 Example Repo, skip to Part B. You DO NOT have to do both parts.
+** If you have downloaded or plan to download ONLY the Jupyter Notebook examples, see Part A below. If you have downloaded or plan to download the ENTIRE Tufts Create 3 Example Repo, skip to Part B. You DO NOT have to do both parts.
 
 Part A:
 
