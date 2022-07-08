@@ -15,7 +15,7 @@ colcon build --packages-select example_package
 ```
 source install/setup.bash
 ```
-5. Change the namepsace in each file to match your own. 
+5. Change the Namepsace in each file to match the Namespace of your Create® 3 robot.
 
 6. 
 ```
