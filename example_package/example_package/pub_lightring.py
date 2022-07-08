@@ -45,7 +45,7 @@ class LEDPublisher(Node):
     The LEDPublisher class is created which is a subclass of Node.
     This defines the class' constructor.
     '''
-    def __init__(self, namespace: str = "/JonSnow"):    
+    def __init__(self, namespace: str = "/[Namespace]"):    
         '''
         The following line calls the Node class's constructor and gives it the Node name,
         which is 'led_publisher.'
