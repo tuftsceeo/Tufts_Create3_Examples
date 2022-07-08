@@ -6,16 +6,16 @@ To use the scripts in this package (or add your own scripts) follow the below in
 
 1. Download the zip file of this repo & unzip it. 
 2. Remove the example_package folder and place it in your home directory. (It doesn't matter what you do with the other files. Delete them for all I care.)
-3. 
+3. Change the Namepsace in each file to match the Namespace of your Create® 3 robot.
+4. 
 ```
 colcon build --packages-select example_package
 ```
 
-4. 
+5. 
 ```
 source install/setup.bash
 ```
-5. Change the Namepsace in each file to match the Namespace of your Create® 3 robot.
 
 6. 
 ```
