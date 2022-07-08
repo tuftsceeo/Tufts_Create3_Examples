@@ -7,15 +7,14 @@ This file shows how to use two action clients in one script and two classes.
 To learn how to combine two action clients in one class, reference action_drive_square2.py.
 '''
 
-'''
-These statements import messages and topics.
-'''
-
 import rclpy
 from rclpy.action import ActionClient
 from rclpy.node import Node
 import time
 
+'''
+These statements import messages and actions.
+'''
 from irobot_create_msgs.action import DriveDistance
 from irobot_create_msgs.action import RotateAngle
 
