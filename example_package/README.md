@@ -1,6 +1,6 @@
 # Example Package 
 
-This folder contains an example package to run ROS2 Python client library scripts. 
+This folder contains an example package to run ROS2 Python client library scripts. There are 5 scripts. An example of how to publish to a topic, an example of how to subscribe to a topic, two examples of how to send actions to the robot (two because both of us are stubborn and wanted to figure it out in different ways), and one eample of how to do all three at once. Subscribing, publishing and sending actions are the basic skills you will need to control the  iRobot® Create® 3 Educational Robot. Master them and you can master the Create® 3. 
 
 To use the scripts in this package (or add your own scripts) follow the below instructions. 
 
