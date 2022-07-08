@@ -42,6 +42,7 @@ It is essentially converting RGB values to common colors.
 
 class LEDPublisher(Node):
 '''
+The LEDPublisher class is created which is a subclass of Node.
 This defines the class' constructor.
 '''
     def __init__(self, namespace: str = "[Namespace]"):    
