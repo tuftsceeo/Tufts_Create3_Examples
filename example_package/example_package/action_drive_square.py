@@ -3,7 +3,9 @@ action_drive_square.py
 Tufts Create®3 Example
 by Kate Wujciak
 
-This file 
+This file shows how to use two action clients in one script and two classes. 
+To learn how to combine two action clients in one class, reference action_drive_square2.py.
+
 '''
 
 import rclpy
