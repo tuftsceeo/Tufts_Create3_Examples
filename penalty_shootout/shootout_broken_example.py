@@ -34,18 +34,22 @@ class PenaltyKick(Node):
       '''
     def move1_response_callback(self, future):
       '''
-      In this function you should check to see if the goal was accepted or rejected.
-      Log that information if you wish
+      In this function you should
+      1. check to see if the goal was accepted or rejected.
+      2. log that information if you wish
       '''
     def move1_result_callback(self, future):
       ''' 
-      In this function you should get the result of the action.
-      Log the information if you wish. 
-      Figure out how to preform another move or shutdown.
+      In this function you should
+      1. get the result of the action.
+      2. log the information if you wish. 
+      3. figure out how to preform another move or shutdown.
       '''
 def main(args=None):
     '''
-    Initializes rclpy, your node & determine how you wish to call our classes or functions to preform a set of moves
+    In this function you should
+    1. initialize rclpy & your node
+    2. determine how you wish to call your classes or functions to preform a set of moves
     '''
     rclpy.init(args=args)
     rclpy.shutdown()
