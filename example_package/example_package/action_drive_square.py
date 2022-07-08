@@ -29,18 +29,17 @@ class DriveDistanceActionClient(Node):
     '''
 
     def __init__(self):
+    
         '''
         We initialize the class by calling the Node constructor then
         naming our node 'drive_distance_action_client'
         '''
-        
         super().__init__('drive_distance_action_client')
         
         '''
         Here we initiate a new action server. We include where to add the action client
         (self), the type of action (DriveDistance), and the action name ('drive_distance').
-        '''
-        
+        '''       
         self._action_client = ActionClient(
             self, DriveDistance, 'Ygritte/drive_distance')
 
