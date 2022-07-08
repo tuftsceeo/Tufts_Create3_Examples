@@ -7,11 +7,12 @@ This file shows how to subscribe to a topic in ROS2 using the Create®3. It subs
 to the IR sensor and displays the relevant information in your terminal. 
 '''
 
-'''
-These statements import messages and topics. 
-'''
 import sys
 import rclpy
+
+'''
+Statements that import messages, actions, interfaces, and variable types.
+'''
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 from irobot_create_msgs.msg import IrIntensityVector
