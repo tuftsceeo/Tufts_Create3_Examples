@@ -47,18 +47,23 @@ class DriveDistanceActionClient(Node):
             self, DriveDistance, 'Ygritte/drive_distance')
 
     def send_goal(self, distance=0.5, max_translation_speed=0.15):
-
+        '''
+        The following lines determine which components of the message we want to derive.
+        '''
         goal_msg = DriveDistance.Goal()
         goal_msg.distance = distance
         goal_msg.max_translation_speed = max_translation_speed
+
         '''
         This method waits for the action server to be available.
         '''
         self._action_client.wait_for_server()
+        
         '''
         Sends a goal to the server.
         '''
         self._send_goal_future = self._action_client.send_goal_async(goal_msg)
+        
         '''
         Returns a future to a goal handle. We need to register a callback 
         for when the future is complete.
