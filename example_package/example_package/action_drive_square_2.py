@@ -37,8 +37,8 @@ class SquareActionClient(Node):
         We include where to add the action client (self), the type of action, and the name
         of the action 
         '''        
-        self.drive = ActionClient(self, DriveDistance, '/JonSnow/drive_distance')
-        self.turn = ActionClient(self, RotateAngle, '/JonSnow/rotate_angle')
+        self.drive = ActionClient(self, DriveDistance, '/[Namespace]/drive_distance')
+        self.turn = ActionClient(self, RotateAngle, '/[Namespace]/rotate_angle')
   
         '''
         Below we initialize a counter that we will call later so that 
