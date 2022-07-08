@@ -24,7 +24,7 @@ class IRSubscriber(Node):
     The Node is subscribing to the /ir_intensity topic.
     '''
     
-    def __init__(self, namespace: str = "/JonSnow"):
+    def __init__(self, namespace: str = "/[Namespace]"):
         '''
         The following line calls the Node class' constructor and declares a node name,
         which is 'IR_subscriber' in this case. 
