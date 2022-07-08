@@ -15,4 +15,6 @@ cd jupyter_notebook_examples
 jupyter notebook
 ``` 
 5. Change the Namepsace in each file to match the Namespace of your Create® 3 robot.
-6. Run the code by clicking on the block and pressing the run button. 
+6. Run the code by clicking on the cell (so that it highlights blue) and pressing the run button. 
+
+Write your own code by adding a cell at the bottom of any file, typing out your code, selecting the cell so that it turns blue, and pressing the run button.
