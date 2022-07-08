@@ -13,7 +13,6 @@ cd jupyter_notebook_examples
 4. 
 ```
 jupyter notebook
-```
-5. Navigate to the link if it does not automatially open & enter the jupyter_notebook_examples folder. 
-6. Change the Namepsace in each file to match the Namespace of your Create® 3 robot.
-7. Run the code by clicking on the block and pressing the run button. 
+``` 
+5. Change the Namepsace in each file to match the Namespace of your Create® 3 robot.
+6. Run the code by clicking on the block and pressing the run button. 
