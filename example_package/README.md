@@ -15,7 +15,9 @@ colcon build --packages-select example_package
 ```
 source install/setup.bash
 ```
-5. 
+5. Change the namepsace in each file to match your own. 
+
+6. 
 ```
 ros2 run example_package [executable name]
 ```
