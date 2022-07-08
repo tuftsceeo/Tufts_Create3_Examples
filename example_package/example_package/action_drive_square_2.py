@@ -1,6 +1,14 @@
+''' 
+action_drive_square_2
+Tufts Create3 Example
+by Maddie Pero
+
+This is an example of combining two action clients in one class. To learn how to write mulitple classes
+in one script reference action_drive_square
+'''
+
 import rclpy
 from rclpy.action import ActionClient
-
 from rclpy.node import Node
 
 '''
@@ -130,6 +138,7 @@ class SquareActionClient(Node):
         '''
         result = future.result().result
         self.get_logger().info('Result: {0}'.format(result))
+        
         ''' 
         if the counter is less than 3 we want the robot to drive another 
         side and turn again so we call our send_drive() function.
