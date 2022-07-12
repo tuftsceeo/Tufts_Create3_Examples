@@ -1,4 +1,4 @@
-# The iRobot® Create® 3 is the new Alex Morgan, Mo Salah or Edouard Mendy. 
+# iRobot™ Education's Create® 3 is the new Alex Morgan, Mo Salah or Edouard Mendy. 
 
 Design soccer players (that will sit on top of your Create® 3 robot) to shoot a penalty kick or save one and code your Create® 3 robot to fake out the opponent. 
 
