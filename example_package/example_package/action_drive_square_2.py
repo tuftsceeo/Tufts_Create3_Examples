@@ -1,6 +1,6 @@
 ''' 
 action_drive_square_2.py
-Tufts Create®3 example
+Tufts Create®3 Educational Robot Example
 by Maddie Pero
 
 This is an example of combining two action clients in one class. To learn how to write mulitple classes
