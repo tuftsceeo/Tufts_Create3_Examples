@@ -1,6 +1,6 @@
 '''
 shootout_broken_example.py
-Tufts Create®3 example
+Tufts Create®3 Educational Robot Example
 by Maddie Pero
 
 Edit this code to move your Create®3 soccer player in order to fake out the opponent and score (or save) a penalty kick
