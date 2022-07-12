@@ -1,6 +1,6 @@
 '''
 action_drive_square.py
-Tufts Create®3 Example
+Tufts Create®3 Educational Robot Example
 by Kate Wujciak
 
 This file shows how to use two action clients in one script and two classes. 
