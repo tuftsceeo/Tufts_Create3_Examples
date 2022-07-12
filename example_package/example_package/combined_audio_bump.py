@@ -1,6 +1,6 @@
 '''
 combined_audio_bump.py
-Tufts Create®3 example
+Tufts Create®3 Educational Robot Example
 by Maddie Pero 
 
 This script is an example of how to combine a subscriber, publisher and an action client under one class. 
