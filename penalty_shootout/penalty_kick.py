@@ -22,7 +22,6 @@ class PenaltyKick1(Node):
 
     def __init__(self):
     	super().__init__('penalty_kick_1')
-    	self.declare_parameter('/JonSnow/motion_control/safety_override','full')
     	self.drive = ActionClient(self, DriveDistance, '/JonSnow/drive_distance')
     	self.turn = ActionClient(self, RotateAngle, '/JonSnow/rotate_angle')
     	self.arc = ActionClient(self, DriveArc, '/JonSnow/drive_arc')
