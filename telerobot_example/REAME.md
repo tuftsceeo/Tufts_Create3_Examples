@@ -1,18 +1,18 @@
-# Teleoperation & Teleprescence with the iRobot® Create® 3
+# Teleoperation & Teleprescence with iRobot™ Education's Create® 3
 
-In this example, you will learn to control a Create® 3 robot with the keyboard on your laptop. Being able to control the robot from a distance makes it teleoperational. To make it have telepresence, design a phone stand that can attach to the top of the Create® 3 robot. Facetime or Zoom into your phone so you can see the environment where you are driving the robot. This allows you to feel present as your robot navigates around. 
+In this example, you will learn to control a Create®3 robot with the keyboard on your laptop. Being able to control the robot from a distance makes it teleoperational. To make it have telepresence, design a phone stand that can attach to the top of the Create®3 robot. Facetime or Zoom into your phone so you can see the environment where you are driving the robot. This allows you to feel present as your robot navigates around. 
 
 ## ROS2 Commands 
 
-Great news, the package needed for teleoperation is already imbedded in the ROS2 environment! We will just make slight changes to the parameters of the Create® 3 robot and to the node arguments so that it all runs correctly. 
+Great news, the package needed for teleoperation is already imbedded in the ROS 2 environment! We will just make slight changes to the parameters of the Create®3 robot and to the node arguments so that it all runs correctly. 
 
-First, we need to disable the motion control safety features of the Create® 3 robot. This will allow you to drive the robot in reverse. 
+First, we need to disable the motion control safety features of the Create®3 robot. This will allow you to drive the robot in reverse. 
 
 ```
 ros2 param set /[Namespace]/motion_control safety_override full
 ```
 
-Then we can run the teleop_twist_keyboard package that is already in the ROS2 environment. 
+Then we can run the teleop_twist_keyboard package that is already in the ROS 2 environment. 
 
 ```
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --ros-args -r __ns:=/{Namespace}
@@ -20,7 +20,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --ros-args -r __
 
 ## What You'll See
 
-When you run this package & executable you will see the following information in your terminal. Now you can use the keys on your keyboard to remotely control your Create® 3 robot. Happy Driving!
+When you run this package & executable you will see the following information in your terminal. Now you can use the keys on your keyboard to remotely control your Create®3 robot. Happy Driving!
 
 ```
 Reading from the keyboard  and Publishing to Twist!
