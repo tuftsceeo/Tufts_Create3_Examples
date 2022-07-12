@@ -1,12 +1,12 @@
 # Example Package 
 
-This folder contains an example package to run ROS 2 Python client library scripts. There are 5 scripts. An example of how to publish to a topic, an example of how to subscribe to a topic, two examples of how to send actions to the robot (two because both of us are stubborn and wanted to figure it out in different ways), and one eample of how to do all three at once. Subscribing, publishing and sending actions are the basic skills you will need to control the iRobot™ Education's Create® 3 Educational Robot. Master them and you can master the Create®3 educational robot. 
+This folder contains an example package to run ROS 2 Python client library scripts. There are 5 scripts. An example of how to publish to a topic, an example of how to subscribe to a topic, two examples of how to send actions to the robot (two because both of us are stubborn and wanted to figure it out in different ways), and one eample of how to do all three at once. Subscribing, publishing and sending actions are the basic skills you will need to control the iRobot™ Education's Create®3 Educational Robot. Master them and you can master the Create®3 educational robot. 
 
 To use the scripts in this package (or add your own scripts) follow the below instructions. 
 
 1. Download the zip file of this repo & unzip it. 
 2. Remove the example_package folder and place it in your home directory. (It doesn't matter what you do with the other files. Delete them for all I care.)
-3. Change the Namepsace in each file to match the Namespace of your Create® 3 robot.
+3. Change the Namepsace in each file to match the Namespace of your Create®3 robot.
 4. 
 ```
 colcon build --packages-select example_package
