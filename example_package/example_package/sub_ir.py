@@ -1,6 +1,6 @@
 '''
 sub_ir.py
-Tufts Create®3 example
+Tufts Create®3 Educational Robot Example
 by Kate Wujciak 
 
 This file shows how to subscribe to a topic in ROS2 using the Create®3. It subscribes
