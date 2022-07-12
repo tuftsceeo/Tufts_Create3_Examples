@@ -9,7 +9,7 @@ python3 -m pip install jupyter
 
 ** If you have downloaded or plan to download ONLY the Jupyter Notebook examples, see Part A below. If you have downloaded or plan to download the ENTIRE Tufts Create 3 Example Repo, skip to Part B. You DO NOT have to do both parts. **
 
-Part A:
+### Part A:
 
 To run the Jupyter Notebook Scripts all you need to do is
 
@@ -29,7 +29,7 @@ jupyter notebook
 Write your own code by adding a cell at the bottom of any file, typing out your code, selecting the cell so that it turns blue, and pressing the run button.
 
 
-Part B:
+### Part B:
 If you have cloned the entire Tufts_Create3_Examples repo, see directions below for how to access the Jupyter Notebook
 
 0. If you have not cloned the repo but want to, navigate to your home directory in your terminal by typing
