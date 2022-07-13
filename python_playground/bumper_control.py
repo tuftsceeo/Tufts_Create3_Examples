@@ -7,7 +7,8 @@ from irobot_edu_sdk.music import Note
 
 robot = Create3(Bluetooth())
 
-speed = 4
+speed = 10
+arc_speed = 4
 large_angle = 65
 small_angle = 15
 
@@ -18,28 +19,28 @@ small_angle = 15
 @event(robot.when_bumped, [True, False])
 async def bumped(robot):
     await robot.set_lights_rgb(255, 0, 0)
-    await robot.arc(Robot.DIR_LEFT, large_angle, speed)
+    await robot.arc(Robot.DIR_LEFT, large_angle, arc_speed)
     await robot.wait(0.3)
 
 
 @event(robot.when_bumped, [False, True])
 async def bumped(robot):
     await robot.set_lights_rgb(0, 255, 0)
-    await robot.arc(Robot.DIR_RIGHT, large_angle, speed)
+    await robot.arc(Robot.DIR_RIGHT, large_angle, arc_speed)
     await robot.wait(0.3)
     
 @event(robot.when_touched, [True, False])  # (.) button
 async def touched(robot):
     print('(.) button touched')
     await robot.set_lights(Robot.LIGHT_SPIN, Color(255, 100, 0))
-    await robot.arc(Robot.DIR_LEFT, small_angle, speed)
+    await robot.arc(Robot.DIR_LEFT, small_angle, arc_speed)
 
 
 @event(robot.when_touched, [False, True])  # (..) button
 async def touched(robot):
     print('(..) button touched')
     await robot.set_lights(Robot.LIGHT_SPIN, Color(100, 255, 0))
-    await robot.arc(Robot.DIR_RIGHT, small_angle, speed)
+    await robot.arc(Robot.DIR_RIGHT, small_angle, arc_speed)
 
     
 async def forward(robot):
