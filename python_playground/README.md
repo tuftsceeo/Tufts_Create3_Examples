@@ -5,21 +5,51 @@ Will be more filled out, but adding notes for now:
 # Events:
 If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async." This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." 
 
-async:
+Whenever you want a function to be decorated by @event, use async in front of def. For example:
+@event(robot.when_play)
+  async def move(robot):
+    ~code~
+    ...
+    ...
+    ...
+   
+   
+@event(robot.when_play)
+  async def color(robot):
+    ~code~
+    ...
+    ...
+    ...
+    
+robot.play
 
-class:
-A function in a class is a method.
-Each method receives the 'self' parameter.
+The robot.play line starts the robot's event system. It triggers all the functions decorated with @event(robot.when_play). Additionally, it will listen for other events like the ones associated with sensors. See max_obstacles.py, instrument.py, or bumper_control.py for full example. Each function that is triggered will run "in parallel," meaning they will all run at the same time. Normally, python scripts will run each function in the order that it reads. The events all us to run functions at the same time or out of order, instead of one by one. 
+
+# Async:
+You can use async without an event decorator. This is when you have a function that you don't want to run immediately in the script (normal "def" function) or run when the event is called. Async is used with a function that is called later, usually in an event function. For example:
+...
+async def forward(robot):
+    await robot.set_wheel_speeds(speed, speed)
+    
+@event(robot.when_play)
+async def play(robot):
+    await forward(robot)
+
+robot.play()
+
+(see max_obstacles.py for full example)
+
+# Class:
+A function in a class is called a method. Each method receives the 'self' parameter. In the example below, the parameter "name" is stored in the property "self.name". For example:
+class my_robot:
+    def __init__(self, name):
+        self.name = name
+    def message(self, color):
+        print('I am ' + str(color))
 
 
-It is important that an event function, is declated as async.
 
-robot.play starts the robot's event system. It will do 2 things:
-1. Trigger all the functions decorated with @event(robot.when_play).
-2. Start listening for other events, such as the ones triggered by the robot's sensors.
-3. trigger all the async functions decoreated with the @event(robot.when_play)
 
-Any event (in this case we are using the robot.when_play event) can trigger multiple tasks that will run in parallel.
 An event triggered by the robot's sensors, such as its bumpers, can also run multiple tasks.
 robot methods are all called with await.
 
