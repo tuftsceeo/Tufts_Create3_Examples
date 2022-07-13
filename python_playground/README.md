@@ -2,17 +2,16 @@ Will be more filled out, but adding notes for now:
 - organized by instruction for each topic (event, async, etc) 
 
 
-events:
-
+# Events:
+If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async." This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." 
 
 async:
 
-
+class:
 A function in a class is a method.
 Each method receives the 'self' parameter.
 
-# Functions decorated with @event triggered by events.
-A robot.when_play event is triggered when the robot.play() method is called.
+
 It is important that an event function, is declated as async.
 
 robot.play starts the robot's event system. It will do 2 things:
