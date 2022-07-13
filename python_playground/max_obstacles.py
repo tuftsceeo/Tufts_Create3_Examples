@@ -8,7 +8,14 @@ from irobot_edu_sdk.music import Note
 robot = Create3(Bluetooth())
 speed = 10
 th = 150
+stop = False
 
+@event(robot.when_bumped, [])
+async def bumped(robot):
+    global stop
+    await robot.set_lights_rgb(255, 0, 0)
+    stop = True 
+    await robot.stop()
 
 async def forward(robot):
     await robot.set_lights(Robot.LIGHT_SPIN, Color(255, 255, 0))
