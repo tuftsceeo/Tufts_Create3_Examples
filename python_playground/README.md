@@ -1,4 +1,4 @@
-# Python Playground Examples
+## Python Playground Examples
 This folder contains multiple example python files. These files can be used in iRobot™ Education's Python Playground. The files include driving the robot using the bumpers, driving in a square, using it as an instrument, learning proportional integral control, and using IR sensors to avoid obstacles. They are meant to include many different components of the capabilities within python playground. Use these examples to write your own files to run on the Create®3 Educational Robot. Since the python syntax may be a bit different than what you're used to, there are some notes on some common aspects of confusion below. 
 
 
