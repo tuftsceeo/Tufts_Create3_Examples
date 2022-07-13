@@ -31,7 +31,6 @@ async def bumped(robot):
 async def bumped(robot):
     print('Bumped in the RIGHT')
 
-
 @event(robot.when_play)
 async def play(robot):
     count = 0
@@ -40,15 +39,17 @@ async def play(robot):
         sensors = (await robot.get_ir_proximity()).sensors
         if front_obstacle(sensors):
             await backoff(robot)
-            await robot.play_note(Note.C5_SHARP, 1)
+            #await robot.play_note(Note.C5_SHARP, 1)
             await forward(robot)
-            await robot.play_note(Note.A4, 1)
+            #await robot.play_note(Note.A4, 1)
             if sensors[3] != 0:
                 count += 1
-                print('Create has run into ' + str(count) + ' obstacle(s).')
-                print('Create has been bumped ' +str(l_bump)+ ' times on the left and ' + str(r_bump)+' times on the right')
+                print('Create has sensed ' + str(count) + ' obstacle(s)')
+        else:
+            print('No obstacles currently detected.')
     print('Too many obstacles --> Mission Terminated')
     await robot.move(0)
+
 
 robot.play()
 
