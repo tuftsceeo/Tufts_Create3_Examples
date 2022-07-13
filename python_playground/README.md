@@ -1,3 +1,6 @@
+# Python Playground Examples
+This folder contains multiple example python files. These files can be used in iRobot™ Education's Python Playground. The files include driving the robot using the bumpers, driving in a square, using it as an instrument, learning proportional integral control, and using IR sensors to avoid obstacles. They are meant to include many different components of the capabilities within python playground. Use these examples to write your own files to run on the Create®3 Educational Robot. Since the python syntax may be a bit different than what you're used to, there are some notes on some common aspects of confusion below. 
+
 
 # Events:
 If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async." This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." 
