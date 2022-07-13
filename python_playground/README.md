@@ -54,13 +54,9 @@ class my_robot:
 # Methods:
 The robot's methods are all called with await. Methods are lines that tell the robot to do specific actions. It basically just means wait for this to occur until called.
 
-new event (not robot.when_play) for each sensor
-event for sensor, normal fnc for non-sensor related actions.
 
-# notes:
-on the other hand, async doesn't tend to have return values so they can just be
-called whenever for that function to happen.
-async used for events
-def used with return values
-async used with await
-events happen simultaneously
+# Cheat Sheet:
+• async doesn't have return values
+• def has return values
+• async used for events and used with await
+• events happen simultaneously
