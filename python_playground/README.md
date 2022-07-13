@@ -2,6 +2,12 @@ Will be more filled out, but adding notes for now:
 - organized by instruction for each topic (event, async, etc) 
 
 
+events:
+
+
+async:
+
+
 A function in a class is a method.
 Each method receives the 'self' parameter.
 
