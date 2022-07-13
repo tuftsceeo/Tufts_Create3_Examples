@@ -26,25 +26,21 @@ async def play(robot):
     while True:
         sensors = (await robot.get_ir_proximity()).sensors
         max_sensor = max(sensors)
-        max_ind = sensors.index(max_sensor)
+        max_ind = int(sensors.index(max_sensor)) +1 
         print(sensors)
         print('max val is ' + str(max_sensor))
-        print('indice is ' + str(max_ind))
-        if sensors[1] != 0:
+        print('index is ' + str(max_ind))
+        if max_ind == 1:
             await robot.play_note(Note.A4, .1)
-        if sensors[2] != 0:
+        if max_ind == 2:
             await robot.play_note(Note.B4, .1)
-        if sensors[3] != 0:
+        if max_ind == 3:
             await robot.play_note(Note.C4, .1)
-        if sensors[4] != 0:
+        if max_ind == 4:
             await robot.play_note(Note.D4, .1)
-        #await robot.play_note(sensors[1], Note.QUARTER)
-        #await robot.play_note(sensors[2], Note.QUARTER)
-        #await robot.play_note(sensors[3], Note.QUARTER)
-        #await robot.play_note(sensors[4], Note.QUARTER)
-        #await robot.play_note(sensors[5], Note.QUARTER)
-        #await robot.play_note(sensors[6], Note.QUARTER)
+        if max_ind == 5:
+            await robot.play_note(Note.E4, .1)
+        if max_ind == 6:
+            await robot.play_note(Note.F4, .1)
 
 robot.play()
- 
-
