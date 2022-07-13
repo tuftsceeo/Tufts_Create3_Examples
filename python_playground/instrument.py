@@ -1,3 +1,6 @@
+'''
+unfinished
+'''
 from irobot_edu_sdk.backend.bluetooth import Bluetooth
 from irobot_edu_sdk.robots import event, hand_over, Color, Robot, Root, Create3
 from irobot_edu_sdk.music import Note
@@ -6,7 +9,7 @@ robot = Create3(Bluetooth())
 duration = 0.15
 th = 150
 
-def front_obstacle(sensors):
+#def front_obstacle(sensors):
     if sensors[1] != 0:
         await robot.play_note(Note.C5_SHARP, duration)
     if sensors[3] != 0:
