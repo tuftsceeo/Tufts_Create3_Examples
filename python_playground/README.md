@@ -1,12 +1,9 @@
-Will be more filled out, but adding notes for now:
-- organized by instruction for each topic (event, async, etc) 
-
 
 # Events:
 If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async." This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." 
 
 Whenever you want a function to be decorated by @event, use async in front of def. For example:
-'''
+```
 @event(robot.when_play)
   async def move(robot):
     {code}
@@ -19,7 +16,7 @@ Whenever you want a function to be decorated by @event, use async in front of de
 
     
 robot.play
-'''
+```
 
 The robot.play line starts the robot's event system. It triggers all the functions decorated with @event(robot.when_play). Additionally, it will listen for other events like the ones associated with sensors. See max_obstacles.py, instrument.py, or bumper_control.py for full example. Each function that is triggered will run "in parallel," meaning they will all run at the same time. Normally, python scripts will run each function in the order that it reads. The events all us to run functions at the same time or out of order, instead of one by one. 
 
@@ -43,11 +40,13 @@ robot.play()
 
 # Class:
 A function in a class is called a method. Each method receives the 'self' parameter. In the example below, the parameter "name" is stored in the property "self.name". For example:
+```
 class my_robot:
     def __init__(self, name):
         self.name = name
     def message(self, color):
-        print('I am ' + str(color))
+        print('I am ' + str(color))      
+```
 
 # Methods:
 The robot's methods are all called with await. Methods are lines that tell the robot to do specific actions. It basically just means wait for this to occur until called.
