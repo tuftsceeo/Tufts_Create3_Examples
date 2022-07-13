@@ -12,15 +12,30 @@ speed = 10.0
 @event(robot.when_bumped, [True, False])
 async def bumped(robot):
     await robot.set_lights_rgb(255, 0, 0)
-    await robot.set_wheel_speeds(-speed, speed)
+    await robot.arc(Robot.DIR_LEFT, 75, 4)
+   # await robot.set_wheel_speeds(5, 10)
     await robot.wait(0.3)
 
 
 @event(robot.when_bumped, [False, True])
 async def bumped(robot):
     await robot.set_lights_rgb(0, 255, 0)
-    await robot.set_wheel_speeds(speed, -speed)
+    await robot.arc(Robot.DIR_RIGHT, 75, 4)
     await robot.wait(0.3)
+    
+@event(robot.when_touched, [True, False])  # (.) button
+async def touched(robot):
+    #await robot.arc(Robot.DIR_LEFT, 90, 4)
+    await robot.set_wheel_speeds(10, 15)
+
+
+@event(robot.when_touched, [False, True])  # (..) button
+async def touched(robot):
+    print('(..) button touched')
+    await robot.set_lights(Robot.LIGHT_SPIN, Color(255, 255, 0))
+    await robot.set_wheel_speeds(15, 10)
+    #await robot.arc(Robot.DIR_RIGHT, 90, 4)
+    #await robot.arc(Robot.DIR_RIGHT, -90, 4)
 
     
 async def forward(robot):
