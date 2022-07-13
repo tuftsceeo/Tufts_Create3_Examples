@@ -2,6 +2,8 @@
 #proportional controller - slows down as it approaches the wall
 # should be P = P0 + error*Kp
 
+# to keep a set distance from the robot ahead of you I would greatly reduce the max_speed so that a smaller error reduces the speed more. 
+
 from irobot_edu_sdk.backend.bluetooth import Bluetooth
 from irobot_edu_sdk.robots import event, hand_over, Color, Robot, Root, Create3
 from irobot_edu_sdk.music import Note
