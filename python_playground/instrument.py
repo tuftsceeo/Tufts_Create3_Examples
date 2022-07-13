@@ -3,6 +3,17 @@ from irobot_edu_sdk.robots import event, hand_over, Color, Robot, Root, Create3
 from irobot_edu_sdk.music import Note
 
 robot = Create3(Bluetooth())
+duration = 0.15
+
+@event(robot.when_touched, [False, True])  # (..) button.
+async def touched(robot):
+    await robot.set_lights_rgb(0, 255, 0)
+    await robot.play_note(Note.C5_SHARP, duration)
+
+@event(robot.when_touched, [True, False])  # (.) button.
+async def touched(robot):
+    await robot.set_lights_rgb(0, 255, 0)
+    await robot.play_note(Note.A5, duration)
 
 
 @event(robot.when_play)
