@@ -162,17 +162,16 @@ def main(args=None):
     square_action_client = SquareActionClient() 
     square_action_client.send_drive()
     '''
-    Sends the first goal and waits until goal is done & shuts down the node if there is 
+    Sends the first goal, waits until goal is done & shuts down the node if there is 
     an excception.
     '''
     try:
         rclpy.spin(square_action_client)
     except KeyboardInterrupt:
         print('\nCaught keyboard interrupt')
+        rclpy.shutdown()
     finally:
         print("Done")
-        square_action_client.destroy_node()
-        rclpy.shutdown()
 
 
 if __name__ == '__main__':
