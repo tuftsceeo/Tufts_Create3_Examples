@@ -1,8 +1,8 @@
-## Python Playground Examples
+# Python Playground Examples
 This folder contains multiple example python files. These files can be used in iRobot™ Education's Python Playground. The files include driving the robot using the bumpers, driving in a square, using it as an instrument, learning proportional integral control, and using IR sensors to avoid obstacles. They are meant to include many different components of the capabilities within python playground. Use these examples to write your own files to run on the Create®3 Educational Robot. Since the python syntax may be a bit different than what you're used to, there are some notes on some common aspects of confusion below. 
 
 
-# Events:
+## Events:
 If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async." This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." 
 
 Whenever you want a function to be decorated by @event, use async in front of def. For example:
@@ -27,7 +27,7 @@ Since the robot uses a few different sensors, now we can take advantage of all o
 
 We can use the normal "def" format if we want to run that function to access its return value later. See max_obstacles.py as an example.
 
-# Async:
+## Async:
 You can use async without an event decorator. This is when you have a function that you don't want to run immediately in the script (normal "def" function) or run when the event is called. Async is used with a function that is called later, usually in an event function. Async functions do not have return values. Use the normal "def" format if you want a return value from a function. For example:
 ```
 async def forward(robot):
@@ -41,7 +41,7 @@ robot.play()
 ```
 (see max_obstacles.py for full example)
 
-# Class:
+## Class:
 A function in a class is called a method. Each method receives the 'self' parameter. In the example below, the parameter "name" is stored in the property "self.name". For example:
 ```
 class my_robot:
@@ -51,11 +51,11 @@ class my_robot:
         print('I am ' + str(color))      
 ```
 
-# Methods:
+## Methods:
 The robot's methods are all called with await. Methods are lines that tell the robot to do specific actions. It basically just means wait for this to occur until called.
 
 
-# Cheat Sheet:
+## Cheat Sheet:
 • async doesn't have return values
 
 • def has return values
