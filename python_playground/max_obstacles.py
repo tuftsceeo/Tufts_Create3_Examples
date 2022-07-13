@@ -39,9 +39,9 @@ async def play(robot):
         sensors = (await robot.get_ir_proximity()).sensors
         if front_obstacle(sensors):
             await backoff(robot)
-            #await robot.play_note(Note.C5_SHARP, 1)
+            await robot.play_note(Note.C5_SHARP, 1)
             await forward(robot)
-            #await robot.play_note(Note.A4, 1)
+            await robot.play_note(Note.A4, 1)
             if sensors[3] != 0:
                 count += 1
                 print('Create has sensed ' + str(count) + ' obstacle(s)')
