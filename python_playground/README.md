@@ -17,3 +17,15 @@ robot.play starts the robot's event system. It will do 2 things:
 
 Any event (in this case we are using the robot.when_play event) can trigger multiple tasks that will run in parallel.
 An event triggered by the robot's sensors, such as its bumpers, can also run multiple tasks.
+
+# notes:
+# when event is triggered, it will run those "events."
+# async def means "don't run this function yet"
+# we want only def when we want the return value later in the script.
+# on the other hand, async doesn't tend to have return values so they can just be
+# called whenever for that function to happen.
+# await means wait for this to occur until called.
+# async used for events
+# def used with return values
+# async used with await
+# events happen simultaneously
