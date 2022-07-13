@@ -1,10 +1,15 @@
+'''
+header
+'''
 from irobot_edu_sdk.backend.bluetooth import Bluetooth
 from irobot_edu_sdk.robots import event, hand_over, Color, Robot, Root, Create3
 from irobot_edu_sdk.music import Note
 
 robot = Create3(Bluetooth())
 
-speed = 10.0
+speed = 4
+large_angle = 65
+small_angle = 15
 
 #@event(robot.when_touched, [True, True])
 #async def go(robot):
@@ -13,30 +18,28 @@ speed = 10.0
 @event(robot.when_bumped, [True, False])
 async def bumped(robot):
     await robot.set_lights_rgb(255, 0, 0)
-    await robot.arc(Robot.DIR_LEFT, 65, 4)
-   # await robot.set_wheel_speeds(5, 10)
+    await robot.arc(Robot.DIR_LEFT, large_angle, speed)
     await robot.wait(0.3)
 
 
 @event(robot.when_bumped, [False, True])
 async def bumped(robot):
     await robot.set_lights_rgb(0, 255, 0)
-    await robot.arc(Robot.DIR_RIGHT, 65, 4)
+    await robot.arc(Robot.DIR_RIGHT, large_angle, speed)
     await robot.wait(0.3)
     
 @event(robot.when_touched, [True, False])  # (.) button
 async def touched(robot):
-    await robot.arc(Robot.DIR_LEFT, 15, 4)
-    #await robot.set_wheel_speeds(5, 20)
+    print('(.) button touched')
+    await robot.set_lights(Robot.LIGHT_SPIN, Color(255, 100, 0))
+    await robot.arc(Robot.DIR_LEFT, small_angle, speed)
 
 
 @event(robot.when_touched, [False, True])  # (..) button
 async def touched(robot):
     print('(..) button touched')
-    await robot.set_lights(Robot.LIGHT_SPIN, Color(255, 255, 0))
-    #await robot.set_wheel_speeds(15, 5)
-    await robot.arc(Robot.DIR_RIGHT, 15, 4)
-    #await robot.arc(Robot.DIR_RIGHT, -90, 4)
+    await robot.set_lights(Robot.LIGHT_SPIN, Color(100, 255, 0))
+    await robot.arc(Robot.DIR_RIGHT, small_angle, speed)
 
     
 async def forward(robot):
@@ -50,7 +53,6 @@ async def move(robot):
     # Only task that are not currenctly running can be triggered.
     while True:
         await forward(robot)
-        # No need of calling "await hand_over()" in this infinite loop, because robot methods are all called with await.
         await robot.wait(0.3)
 
 
