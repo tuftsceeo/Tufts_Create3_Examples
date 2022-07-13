@@ -1,6 +1,3 @@
-'''
-comments to be inserted
-'''
 from irobot_edu_sdk.backend.bluetooth import Bluetooth
 from irobot_edu_sdk.robots import event, hand_over, Color, Robot, Root, Create3
 from irobot_edu_sdk.music import Note
@@ -9,10 +6,14 @@ robot = Create3(Bluetooth())
 
 speed = 10.0
 
+#@event(robot.when_touched, [True, True])
+#async def go(robot):
+#    await forward(robot)
+
 @event(robot.when_bumped, [True, False])
 async def bumped(robot):
     await robot.set_lights_rgb(255, 0, 0)
-    await robot.arc(Robot.DIR_LEFT, 75, 4)
+    await robot.arc(Robot.DIR_LEFT, 65, 4)
    # await robot.set_wheel_speeds(5, 10)
     await robot.wait(0.3)
 
@@ -20,21 +21,21 @@ async def bumped(robot):
 @event(robot.when_bumped, [False, True])
 async def bumped(robot):
     await robot.set_lights_rgb(0, 255, 0)
-    await robot.arc(Robot.DIR_RIGHT, 75, 4)
+    await robot.arc(Robot.DIR_RIGHT, 65, 4)
     await robot.wait(0.3)
     
 @event(robot.when_touched, [True, False])  # (.) button
 async def touched(robot):
-    #await robot.arc(Robot.DIR_LEFT, 90, 4)
-    await robot.set_wheel_speeds(10, 15)
+    await robot.arc(Robot.DIR_LEFT, 15, 4)
+    #await robot.set_wheel_speeds(5, 20)
 
 
 @event(robot.when_touched, [False, True])  # (..) button
 async def touched(robot):
     print('(..) button touched')
     await robot.set_lights(Robot.LIGHT_SPIN, Color(255, 255, 0))
-    await robot.set_wheel_speeds(15, 10)
-    #await robot.arc(Robot.DIR_RIGHT, 90, 4)
+    #await robot.set_wheel_speeds(15, 5)
+    await robot.arc(Robot.DIR_RIGHT, 15, 4)
     #await robot.arc(Robot.DIR_RIGHT, -90, 4)
 
     
