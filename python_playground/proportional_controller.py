@@ -1,5 +1,6 @@
 #need to comment
 #proportional controller - slows down as it approaches the wall
+# should be P = P0 + error*Kp
 
 from irobot_edu_sdk.backend.bluetooth import Bluetooth
 from irobot_edu_sdk.robots import event, hand_over, Color, Robot, Root, Create3
