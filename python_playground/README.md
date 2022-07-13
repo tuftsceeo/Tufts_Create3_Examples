@@ -26,7 +26,7 @@ We can use the normal "def" format if we want to run that function to access its
 
 # Async:
 You can use async without an event decorator. This is when you have a function that you don't want to run immediately in the script (normal "def" function) or run when the event is called. Async is used with a function that is called later, usually in an event function. Async functions do not have return values. Use the normal "def" format if you want a return value from a function. For example:
-...
+```
 async def forward(robot):
     await robot.set_wheel_speeds(speed, speed)
     
@@ -35,7 +35,7 @@ async def play(robot):
     await forward(robot)
 
 robot.play()
-
+```
 (see max_obstacles.py for full example)
 
 # Class:
@@ -54,6 +54,9 @@ The robot's methods are all called with await. Methods are lines that tell the r
 
 # Cheat Sheet:
 • async doesn't have return values
+
 • def has return values
+
 • async used for events and used with await
+
 • events happen simultaneously
