@@ -16,6 +16,7 @@ robot.play starts the robot's event system. It will do 2 things:
 
 Any event (in this case we are using the robot.when_play event) can trigger multiple tasks that will run in parallel.
 An event triggered by the robot's sensors, such as its bumpers, can also run multiple tasks.
+robot methods are all called with await.
 
 new event (not robot.when_play) for each sensor
 event for sensor, normal fnc for non-sensor related actions.
