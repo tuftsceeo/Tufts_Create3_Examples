@@ -42,7 +42,7 @@ robot.play()
 (see max_obstacles.py for full example)
 
 ## Class:
-A function in a class is called a method. Each method receives the 'self' parameter. In the example below, the parameter "name" is stored in the property "self.name". For example:
+A function in a class is called a method. Each method receives the 'self' parameter. In the example below, the parameter "name" is stored in the property "self.name". You can have multiple classes in a script. They can be used to organize the functions in your code. For example:
 ```
 class my_robot:
     def __init__(self, name):
