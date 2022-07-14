@@ -52,14 +52,24 @@ class my_robot:
 ```
 
 ## Methods:
-The robot's methods are all called with await. Methods are lines that tell the robot to do specific actions. It basically just means wait for this to occur until called.
-
+The robot's methods are all called with await. Methods are lines that tell the robot to do specific actions. It basically just means wait for this to occur until called. For example:
+```
+robot.set_wheel_speeds(speed, speed)
+# or
+robot.set_lights_rgb(255, 0, 0)
+# or
+robot.arc(Robot.DIR_LEFT, large_angle, arc_speed)
+```
+Methods should follow the await term such as:
+```
+await robot.set_wheel_speeds(speed, speed)
+```
 
 ## Cheat Sheet:
 • async doesn't have return values
 
-• def has return values
-
 • async used for events and used with await
+
+• def has return values
 
 • events happen simultaneously
