@@ -1,15 +1,9 @@
-#need to comment
-#proportional controller - slows down as it approaches the wall
-# should be P = P0 + error*Kp
-
-# to keep a set distance from the robot ahead of you I would greatly reduce the max_speed so that a smaller error reduces the speed more. 
-
-
 '''
 invisible_springs.py
 Tufts Create®3 Educational Robot Example
 by Maddie Pero
-This file can be used in Python Playground. It is proportional controller. The robot's speed will change based on how close it is to the wall.  
+This file can be used in Python Playground. It is proportional controller. The robot's speed will change based on how close it is to the wall. 
+P = P0 + error*Kp
 '''
 from irobot_edu_sdk.backend.bluetooth import Bluetooth
 from irobot_edu_sdk.robots import event, hand_over, Color, Robot, Root, Create3
