@@ -38,32 +38,48 @@ async def bumped(robot):
 
 '''
 This function is essentially the same as the one above, except going right when the right bumper is hit and changing LED to green.
+Additionally, it is worth noting that the function after the event decorator indicates the sensor being used. The bumper is different
+than the buttons. 
 '''
 @event(robot.when_bumped, [False, True])
 async def bumped(robot):
     await robot.set_lights_rgb(0, 255, 0)
     await robot.arc(Robot.DIR_RIGHT, large_angle, arc_speed)
     await robot.wait(0.3)
-    
+
+'''
+This function turns on a slightly smaller left arc and turns orange when the left button is touched. As noted above with the bumpers,
+(robot.when_touched, [True, False]) indicates which button is being pressed. In the function below, the parameter is [False, True], which 
+means it is the other button (right button). 
+'''
 @event(robot.when_touched, [True, False])  # (.) button
 async def touched(robot):
     print('(.) button touched')
     await robot.set_lights(Robot.LIGHT_SPIN, Color(255, 100, 0))
     await robot.arc(Robot.DIR_LEFT, small_angle, arc_speed)
 
-
+'''
+Similar to how it's noted above, this function tells the robot to slightly turn right when the right button is pressed. 
+'''
 @event(robot.when_touched, [False, True])  # (..) button
 async def touched(robot):
     print('(..) button touched')
     await robot.set_lights(Robot.LIGHT_SPIN, Color(100, 255, 0))
     await robot.arc(Robot.DIR_RIGHT, small_angle, arc_speed)
 
-    
+'''
+This function does NOT have an event decorator because we don't want it to be called with the other functions. Since we want the bumper
+and button sensors to be "activated" at all times, we use an event decorator. But, we only want it to go forward when we tell it to. 
+The async in front implies that we do not want it to run that function when it gets to it in the script. We want to call it later. 
+'''
 async def forward(robot):
     await robot.set_lights(Robot.LIGHT_SPIN, Color(255, 255, 0))
     await robot.set_wheel_speeds(speed, speed)
 
-
+'''
+This function tells the robot to start once any bumper is hit. Then, it will move forward until another @event function is triggered. In that case,
+it will carry out the associated function, always coming back to this one once that finishes. 
+'''
 @event(robot.when_bumped, [])
 async def move(robot):
     # This function will not be called again, since it never finishes.
@@ -73,5 +89,7 @@ async def move(robot):
         await robot.wait(0.3)
 
 
-
+'''
+This command tells all the events to start, which triggers the rest of the script.
+'''
 robot.play()
