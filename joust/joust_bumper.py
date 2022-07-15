@@ -92,7 +92,7 @@ class DriveArcActionClient(Node):
 
         rclpy.shutdown()
 
-def turn(args 
+def turn(args=None):
 
     rclpy.init(args=args)
     action_client = BumperTurn()
