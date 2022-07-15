@@ -21,7 +21,7 @@ Whenever you want a function to be decorated by @event, use async in front of de
 robot.play
 ```
 
-The robot.play line starts the robot's event system. It triggers all the functions decorated with @event(robot.when_play). Additionally, it will listen for other events like the ones associated with sensors. See max_obstacles.py, instrument.py, or bumper_control.py for full example. Each function that is triggered will run "in parallel," meaning they will all run at the same time. Normally, python scripts will run each function in the order that it reads. The events all us to run functions at the same time or out of order, instead of one by one. 
+The robot.play line starts the robot's event system. It triggers all the functions decorated with @event(robot.when_play). Additionally, it will listen for other events like the ones associated with sensors. See max_obstacles.py, instrument.py, or bumper_control.py for full example. Each function that is triggered will run "in parallel," meaning they will all run at the same time. Normally, python scripts will run each function in the order that it reads. The events allow us to run functions at the same time or out of order, instead of one by one. 
 
 Since the robot uses a few different sensors, now we can take advantage of all of them at once. We don't have to wait to run the bumpers if we are using the IR sensors. 
 
