@@ -17,6 +17,7 @@ from irobot_create_msgs.msg import HazardDetectionVector
 
 from rclpy.action import ActionClient
 from irobot_create_msgs.action import RotateAngle
+from irobot_create_msgs.action import DriveArc
 
 
 class BumperTurn(Node):
@@ -52,7 +53,6 @@ class BumperTurn(Node):
         return self._action_client.send_goal_async(goal_msg)
 
 class DriveArcActionClient(Node):
-
     def __init__(self):
     
         super().__init__('drive_arc_action_client')
@@ -60,10 +60,12 @@ class DriveArcActionClient(Node):
         self._action_client = ActionClient(
             self, DriveArc, 'Ygritte/drive_arc')
 
-    def send_goal(self, angle=3.14, radius=1, translate_direction=1, max_translation_speed=0.3):
+    def send_goal(self, angle=3.14, radius=0.3, translate_direction=1, max_translation_speed=0.3):
         goal_msg = DriveArc.Goal()
-        goal_msg.distance = distance
+        goal_msg.angle = angle
         goal_msg.max_translation_speed = max_translation_speed
+        goal_msg.radius = radius
+        goal_msg.translate_direction = translate_direction
 
         self._action_client.wait_for_server()
         
@@ -100,7 +102,7 @@ def turn(args=None):
     action_client.send_goal()
     rclpy.spin(action_client)
     time.sleep(0.5)
-
+    
 def arc(args=None):
     angle = 3.14
     speed = 0.3   
@@ -108,10 +110,10 @@ def arc(args=None):
     rclpy.init(args=args)
     action_client = DriveArcActionClient()
 
-    #action_client.send_goal(angle, 1, 1, speed)
+    #action_client.send_goal(angle, 0.3, 1, speed)
     action_client.send_goal()
     rclpy.spin(action_client)
-    time.sleep(0.5)  
+    time.sleep(0.5)   
 
 
 def main(args=None):
