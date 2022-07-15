@@ -6,6 +6,7 @@ bump right, turn 15º left
 bump left, turn 15º right
 
 arc: negative angle is turn right, positive is turn left.
+arc 3.14 to do a 180
 '''
 import sys
 import rclpy
@@ -26,10 +27,6 @@ class BumperTurn(Node):
         self._action_client = ActionClient(self, RotateAngle, 'Ygritte/rotate_angle')
 
     def listener_callback(self, msg):
-        '''
-        This function is called every time self.subscription gets a message
-        from the Robot. It then turns based on that message.
-        '''
         for detection in msg.detections:
             det = detection.header.frame_id
             if det != "base_link":
@@ -45,11 +42,8 @@ class BumperTurn(Node):
                 elif det == "bump_front_center":
                     self.send_goal(angle=1.57)
 
-    def send_goal(self, angle=1.57, max_rotation_speed=0.5):
-        '''
-        This method waits for the action server to be available, then sends a 
-        goal to the server. It returns a future that we can later wait on.
-        '''
+    def send_goal(self, angle=3.14, max_rotation_speed=0.5):
+        
         goal_msg = RotateAngle.Goal()
         goal_msg.angle = angle
         goal_msg.max_rotation_speed = max_rotation_speed
@@ -57,18 +51,71 @@ class BumperTurn(Node):
         self._action_client.wait_for_server()
         return self._action_client.send_goal_async(goal_msg)
 
+class DriveArcActionClient(Node):
+
+    def __init__(self):
+    
+        super().__init__('drive_arc_action_client')
+           
+        self._action_client = ActionClient(
+            self, DriveArc, 'Ygritte/drive_arc')
+
+    def send_goal(self, angle=3.14, radius=1, translate_direction=1, max_translation_speed=0.3):
+        goal_msg = DriveArc.Goal()
+        goal_msg.distance = distance
+        goal_msg.max_translation_speed = max_translation_speed
+
+        self._action_client.wait_for_server()
+        
+
+        self._send_goal_future = self._action_client.send_goal_async(goal_msg)
+
+        self._send_goal_future.add_done_callback(self.goal_response_callback)
+
+    def goal_response_callback(self, future):
+
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            self.get_logger().info('Goal rejected :(')
+            return
+
+        self.get_logger().info('Goal accepted :)')
+
+        self._get_result_future = goal_handle.get_result_async()
+        self._get_result_future.add_done_callback(self.get_result_callback)
+
+
+    def get_result_callback(self, future):
+
+        result = future.result().result
+        self.get_logger().info('Result: {0}'.format(result))
+
+        rclpy.shutdown()
+
+def turn(args 
+
+    rclpy.init(args=args)
+    action_client = BumperTurn()
+
+    action_client.send_goal()
+    rclpy.spin(action_client)
+    time.sleep(0.5)
+
+def arc(args=None):
+    angle = 1.57
+    speed = 0.5   
+
+    rclpy.init(args=args)
+    action_client = DriveArcActionClient()
+
+    action_client.send_goal(angle, speed)
+    rclpy.spin(action_client)
+    time.sleep(0.5)  
+
 
 def main(args=None):
-    rclpy.init(args=args)
-
-    bumper_turn = BumperTurn()
-    try:
-        rclpy.spin(bumper_turn)
-    except KeyboardInterrupt:
-        print('\nCaught keyboard interrupt')
-    finally:
-        print("Done")
-        rclpy.shutdown()
+    turn()
+    arc()
 
 
 if __name__ == '__main__':
