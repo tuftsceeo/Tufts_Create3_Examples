@@ -54,4 +54,7 @@ async def when_play(robot):
             speed = max_speed
         await forward(robot,speed)
 
+'''
+This command tells all the events to start, which triggers the rest of the script.
+'''
 robot.play()
