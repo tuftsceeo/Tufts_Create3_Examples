@@ -1,5 +1,8 @@
 '''
-header
+bumper_control.py
+Tufts Create®3 Educational Robot Example
+by Kate Wujciak
+This file can be used in Python Playground. It allows you to tap the buttons and bumpers to control your robot's movements. 
 '''
 from irobot_edu_sdk.backend.bluetooth import Bluetooth
 from irobot_edu_sdk.robots import event, hand_over, Color, Robot, Root, Create3
@@ -12,9 +15,6 @@ arc_speed = 4
 large_angle = 65
 small_angle = 15
 
-#@event(robot.when_touched, [True, True])
-#async def go(robot):
-#    await forward(robot)
 
 @event(robot.when_bumped, [True, False])
 async def bumped(robot):
