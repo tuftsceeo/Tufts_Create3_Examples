@@ -102,13 +102,14 @@ def turn(args=None):
     time.sleep(0.5)
 
 def arc(args=None):
-    angle = 1.57
-    speed = 0.5   
+    angle = 3.14
+    speed = 0.3   
 
     rclpy.init(args=args)
     action_client = DriveArcActionClient()
 
-    action_client.send_goal(angle, speed)
+    #action_client.send_goal(angle, 1, 1, speed)
+    action_client.send_goal()
     rclpy.spin(action_client)
     time.sleep(0.5)  
 
