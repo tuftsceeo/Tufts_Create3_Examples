@@ -5,7 +5,7 @@ Welcome! In this repo we (some undergrad mechanical engineering students at Tuft
 If you run into errors search [here](https://katewujciak.wixsite.com/projectcreate/parallels) (step 12) for answers.
 
 ## Get Started
-1. Download this repository 
+1. Download this repository on your virtual machine. 
     - Click the green "Code" button then "Download ZIP"
 2. Unzip the repository & move it to the **Home** directory of your virtual machine
 3. Follow the READMEs in the other folders to test out the code 
