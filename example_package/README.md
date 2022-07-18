@@ -22,6 +22,6 @@ source install/setup.bash
 ros2 run example_package [executable name]
 ```
 The executable names are : **subscribe**, **publish** , **action** , **action2** , and **combined**. 
-We recomend that you run them in that order. Each executable name will run the corresponding python script. For descriptions of what each script does, please check out the comments in the code. 
+We recomend that you run them in that order. Each executable name will run the corresponding python script (which can be found in the example_package sub folder). For descriptions of what each script does, please check out the comments in the code. 
 
 For more information about how to build and run packages in ROS 2 go [here](https://katewujciak.wixsite.com/projectcreate/running-py-files-with-ros2).
