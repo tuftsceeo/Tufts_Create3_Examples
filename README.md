@@ -7,7 +7,7 @@ If you run into errors search [here](https://katewujciak.wixsite.com/projectcrea
 ## Get Started
 1. Download this repository 
     - Click the green "Code" button then "Download ZIP"
-2. Unzip the repository & move it to the **home** directory of your virtual machine
+2. Unzip the repository & move it to the **Home** directory of your virtual machine
 3. Follow the READMEs in the other folders to test out the code 
 
 ## Generally Important Information 
