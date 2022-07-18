@@ -1,26 +1,28 @@
 # Example Package 
 
-This folder contains an example package to run ROS 2 Python client library scripts. There are 5 scripts. An example of how to publish to a topic, an example of how to subscribe to a topic, two examples of how to send actions to the robot (two because both of us are stubborn and wanted to figure it out in different ways), and one eample of how to do all three at once. Subscribing, publishing and sending actions are the basic skills you will need to control the iRobot™ Education's Create®3 Educational Robot. Master them and you can master the Create®3 educational robot. 
+This folder contains an example package to run ROS 2 Python client library scripts. There are 5 scripts. An example of how to publish to a topic, an example of how to subscribe to a topic, two examples of how to send actions to the robot (two because both of us are stubborn and wanted to figure it out in different ways), and one eample of how to do all three at once. Subscribing, publishing and sending actions are the basic skills you will need to control the iRobot™ Education's Create®3 Educational Robot.
 
 To use the scripts in this package (or add your own scripts) follow the below instructions. 
 
-1. Download the zip file of this repo & unzip it. 
-2. Remove the example_package folder and place it in your home directory. (It doesn't matter what you do with the other files. Delete them for all I care.)
-3. Change the Namepsace in each file to match the Namespace of your Create®3 robot.
-4. 
+1. From your home directory navigate to the workspace containing the package 
+```
+cd ./Tufts_Create3_Examples/example_package
+```
+2. Change the Namepsace in each file to match the Namespace of your Create®3 robot.
+3. Build the package & wait for a few seconds until it says "1 package finished"
 ```
 colcon build --packages-select example_package
 ```
-
-5. 
+4. Source the package
 ```
 source install/setup.bash
 ```
-
-6. 
+5. Run the scripts & find out what they do
 ```
 ros2 run example_package [executable name]
 ```
-The executable names are : subscribe , publish , action , action2 , and combined. They can be found in the setup.py file. 
+The executable names are : subscribe , publish , action , action2 , and combined. They can be found in the setup.py file as entry points. 
+
+Each executable name will run the corresponding python script. For descriptions of what each script does, please check out the comments in the code. 
 
 For more information about how to build and run packages in ROS 2 go [here](https://katewujciak.wixsite.com/projectcreate/running-py-files-with-ros2).
