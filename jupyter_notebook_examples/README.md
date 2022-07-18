@@ -11,7 +11,7 @@ sudo apt-get install python-pip
 ```
 python3 -m pip install jupyter
 ```
-2. From your home directory, navigate to the jupyter notebook example directory.
+2. In terminal, navigate from your home directory to this directory. 
 ```
 cd ./Tufts_Create3_Examples/jupyter_notebook_examples
 ```
