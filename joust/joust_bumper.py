@@ -42,6 +42,9 @@ class BumperTurn(Node):
                     self.send_goal(angle=1.3)
                 elif det == "bump_front_center":
                     self.send_goal(angle=1.57)
+                flag = False
+        #return flag
+                
 
     def send_goal(self, angle=3.14, max_rotation_speed=0.5):
         
@@ -50,7 +53,11 @@ class BumperTurn(Node):
         goal_msg.max_rotation_speed = max_rotation_speed
 
         self._action_client.wait_for_server()
-        return self._action_client.send_goal_async(goal_msg)
+        flag = False
+        return self._action_client.send_goal_async(goal_msg), flag
+        
+    flag = False
+        
 
 class DriveArcActionClient(Node):
     def __init__(self):
@@ -95,33 +102,33 @@ class DriveArcActionClient(Node):
         rclpy.shutdown()
 
 def turn(args=None):
-
     rclpy.init(args=args)
     action_client = BumperTurn()
-
     action_client.send_goal()
     rclpy.spin(action_client)
-    time.sleep(0.5)
-    rclpy.shutdown()
-   
+    flag = False
+
     
-def arc(args=None):
-    angle = 3.14
-    speed = 0.3   
+def arc(args=None):  
 
     rclpy.init(args=args)
     action_client = DriveArcActionClient()
 
-    #action_client.send_goal(angle, 0.3, 1, speed)
     action_client.send_goal()
     rclpy.spin(action_client)
-    time.sleep(0.5)   
+    #time.sleep(0.5)   
 
 
 def main(args=None):
-    while True:
-        turn()
-        arc()
+    #flag = True
+    #while flag:
+        #print(str(flag))
+        #turn()
+        #print('flag2 is ' + str(flag)) 
+    #arc()
+    
+    arc()
+    turn()
 
 
 if __name__ == '__main__':
