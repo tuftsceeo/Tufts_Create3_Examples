@@ -3,7 +3,7 @@
 The beauty of a Juypter Notebook is that it simplifies the coding process by bypassing the compiling, building, package hastle. Don't worry you will get to that later.
 There are 5 scripts in this jupyter notebook folder. An example of how to publish to a topic, an example of how to subscribe to a topic, two examples of how to send actions to the robot (two because both of us are stubborn and wanted to figure it out in different ways), and one eample of how to do all three at once. Subscribing, publishing and sending actions are the basic skills you will need to control the iRobot™ Education's Create®3 Educational Robot.
 
-1. Install pip on your machine):
+1. Install pip on your machine:
 ```
 sudo apt-get install python-pip
 ```
