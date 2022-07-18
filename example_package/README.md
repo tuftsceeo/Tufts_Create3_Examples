@@ -17,10 +17,11 @@ colcon build --packages-select example_package
 ```
 source install/setup.bash
 ```
-5. Run the scripts, keep an eye on both your robot & the terminal to figure out what the scripts do. 
+5. Run the scripts. Keep an eye on both your robot & the terminal to figure out what the scripts do. 
 ```
 ros2 run example_package [executable name]
 ```
-The executable names are : subscribe , publish , action , action2 , and combined. We recomend that you run them in that order. Each executable name will run the corresponding python script. For descriptions of what each script does, please check out the comments in the code. 
+The executable names are : **subscribe **, **publish** , **action** , **action2** , and **combined**. 
+We recomend that you run them in that order. Each executable name will run the corresponding python script. For descriptions of what each script does, please check out the comments in the code. 
 
 For more information about how to build and run packages in ROS 2 go [here](https://katewujciak.wixsite.com/projectcreate/running-py-files-with-ros2).
