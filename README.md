@@ -4,6 +4,12 @@ Welcome! In this repo we (some undergrad mechanical engineering students at Tuft
 
 If you run into errors search [here](https://katewujciak.wixsite.com/projectcreate/parallels) (step 12) for answers.
 
+## Get Started
+1. Download this repository
+    - Click the green "Code" button then "Download ZIP"
+2. Unzip the repository
+3. Follow the READMEs in the other folders to test out the code 
+
 ### Generally Important Information 
 
 In any file, if a piece of code is written inside {} brackets it means you should fill it out with your unique namespace/package name/workspace etc. Do not include the {} when you run the code.
