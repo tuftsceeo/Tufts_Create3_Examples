@@ -102,6 +102,8 @@ def turn(args=None):
     action_client.send_goal()
     rclpy.spin(action_client)
     time.sleep(0.5)
+    rclpy.shutdown()
+   
     
 def arc(args=None):
     angle = 3.14
@@ -117,8 +119,9 @@ def arc(args=None):
 
 
 def main(args=None):
-    turn()
-    arc()
+    while True:
+        turn()
+        arc()
 
 
 if __name__ == '__main__':
