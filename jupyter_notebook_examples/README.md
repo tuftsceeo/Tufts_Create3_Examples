@@ -20,9 +20,10 @@ cd ./Tufts_Create3_Examples/jupyter_notebook_examples
 ```
 jupyter notebook
 ``` 
-5. Click on a script you wish to run. 
+5. In the browser page, click on a script you wish to run. 
 6. Change the Namepsace in the file to match the Namespace of your Create®3 robot.
 7. Click on the cell to so that is highlighted in blue & press the run button to run the script. 
+8. To close the notebook go back to terminal & use ctrl c or command c. 
 
 For descriptions of what each script will do, check out the comments in the code. 
 
