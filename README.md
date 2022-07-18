@@ -14,7 +14,7 @@ If you run into errors search [here](https://katewujciak.wixsite.com/projectcrea
 
 In any file, if a piece of code is written inside {} brackets it means you should fill it out with your unique namespace/package name/workspace etc. Do not include the {} when you run the code.
 
-For example, if the namespace of my Create® 3 robot is JonSnow. Then I would want to modify the code accordingly. 
+For example, if the namespace of my Create® 3 robot is JonSnow. Then I would want to modify the code accordingly. For example:
 ```
 ros2 topic echo /{Namespace}/battery_state
 ```
