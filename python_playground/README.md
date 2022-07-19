@@ -3,9 +3,9 @@ This folder contains multiple example python files. These files can be used in i
 
 
 ## Events:
-If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async." This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." 
+If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async." This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." Because of this, we don't use return values with event functions. Since all the event functions happen at the same time, we would never care to use the return vlaue of one of them.
 
-Whenever you want a function to be decorated by @event, use async in front of def. For example:
+Whenever you want a function to be decorated by @event, use async in front of def. Since we want to run these functions when the event tag is called, it is an asynchronous function, thus never running when we get to it in the script. For example:
 ```
 @event(robot.when_play)
   async def move(robot):
@@ -32,6 +32,11 @@ You can use async with or without an event decorator. This is when you have a fu
 ```
 async def forward(robot):
     await robot.set_wheel_speeds(speed, speed)
+
+async def sensors(robot):
+    sensors = (await robot.get_ir_proximity()).sensors
+    avg = sum(sensors)/len(sensors)
+    return avg
     
 @event(robot.when_play)
 async def play(robot):
@@ -73,3 +78,5 @@ await robot.set_wheel_speeds(speed, speed)
 • def and async def can have return values
 
 • events happen simultaneously
+
+• events don't use return values
