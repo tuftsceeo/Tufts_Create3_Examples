@@ -6,6 +6,8 @@ In this example, you will learn to control a Create®3 robot with the keyboard o
 
 Great news, the package needed for teleoperation is already imbedded in the ROS 2 environment! We won't use any of the files in this repo. Everything will occur in the command line of the terminal. We will just make slight changes to the parameters of the Create®3 robot and to the node arguments so that it all runs correctly. 
 
+Just a reminder that when you see [Namespace], change that to your robot's namespace. See the [home README.md](https://github.com/brianabouchard/Tufts_Create3_Examples) for an example.
+
 First, we need to disable the motion control safety features of the Create®3 robot. This will allow you to drive the robot in reverse. 
 
 ```
