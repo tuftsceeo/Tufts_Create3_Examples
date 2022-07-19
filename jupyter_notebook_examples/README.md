@@ -26,7 +26,7 @@ jupyter notebook
 5. In the browser page, click on a script you wish to run. 
 6. Change the [Namepsace] in the file to match the Namespace of your Create®3 robot.
 7. Click on the cell to so that is highlighted in blue & press the run button to run the script. 
-8. To close the notebook go back to terminal & use ctrl c or command c. 
+8. To close the notebook, go back to terminal & type ctrl+c (pc) or cmd+c (mac). 
 
 For descriptions of what each script will do, check out the comments in the code. 
 
