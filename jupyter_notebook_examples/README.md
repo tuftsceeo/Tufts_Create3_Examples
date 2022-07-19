@@ -9,7 +9,7 @@ There are 5 scripts in this jupyter notebook folder. An example of how to publis
 
 1. Install pip on your machine:
 ```
-sudo apt-get install python3-pip
+sudo apt-get install python-pip
 ```
 2. Install Jupyter Notebook in Terminal:
 ```
