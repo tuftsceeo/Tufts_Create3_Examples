@@ -5,7 +5,7 @@ Welcome! In this repo we (some undergrad mechanical engineering students at Tuft
 If you run into errors search [here](https://katewujciak.wixsite.com/projectcreate/parallels) (step 12) for answers.
 
 ## Get Started
-1. Download this repository on your virtual machine. 
+1. If you are not currently in your virtual machine, go to that now. Once you are there, open [this link](https://github.com/brianabouchard/Tufts_Create3_Examples) in your virtual machine. Download this repository (on your virtual machine). 
     - Click the green "Code" button then "Download ZIP"
 2. Unzip the repository & move it to the **Home** directory of your virtual machine. Double check it is still named "Tufts_Create3_Examples."
 3. Follow the READMEs in the other folders to test out the code.
