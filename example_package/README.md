@@ -9,7 +9,7 @@ This folder contains an example package to run ROS 2 Python client library scrip
 ```
 cd ./Tufts_Create3_Examples/example_package
 ```
-2. Change the Namepsace in each file to match the Namespace of your Create®3 robot.
+2. Change the {Namepsace} in each file to match the namespace of your Create®3 robot.
 3. Build the package & wait for a few seconds until it says "1 package finished"
 ```
 colcon build --packages-select example_package
