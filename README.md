@@ -7,8 +7,8 @@ If you run into errors search [here](https://katewujciak.wixsite.com/projectcrea
 ## Get Started
 1. Download this repository on your virtual machine. 
     - Click the green "Code" button then "Download ZIP"
-2. Unzip the repository & move it to the **Home** directory of your virtual machine. Double check it is still named "Tufts_Create3_Examples"
-3. Follow the READMEs in the other folders to test out the code 
+2. Unzip the repository & move it to the **Home** directory of your virtual machine. Double check it is still named "Tufts_Create3_Examples."
+3. Follow the READMEs in the other folders to test out the code.
 
 ## Generally Important Information 
 
