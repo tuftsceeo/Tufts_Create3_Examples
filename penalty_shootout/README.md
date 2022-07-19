@@ -9,6 +9,8 @@ Rules for the shootout are as follow:
 4. The ball must be in your contraption before your start the code. 
 5. No teleop. 
 
+0. If you have not downloaded the zip file of the repo, go back to the [home page](https://github.com/brianabouchard/Tufts_Create3_Examples) and follow the directions on that README.md to download all the necessary files. Once that is done, continue through these instructions.  
+
 ### Use These Scripts
 **Either** use the Jypter Notebook by:
 
