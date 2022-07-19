@@ -2,8 +2,6 @@
 
 Design soccer players (that will sit on top of your Create® 3 robot) to shoot a penalty kick or save one and code your Create® 3 robot to fake out the opponent. 
 
-0. If you have not downloaded the zip file of the repo, go back to the [home page](https://github.com/brianabouchard/Tufts_Create3_Examples) and follow the directions on that README.md to do so.  
-
 Rules for the shootout are as follow: 
 1. Goalkeepers can only move side to side. 
 2. Shooters must shoot before taped line.
@@ -12,19 +10,22 @@ Rules for the shootout are as follow:
 5. No teleop. 
 
 ### Use These Scripts
+
+0. If you have not downloaded the zip file of the repo, go back to the [home page](https://github.com/brianabouchard/Tufts_Create3_Examples) and follow the directions on that README.md to do so. 
+
 **Either** use the Jypter Notebook by:
 
-Navigating from your home directory to the penalty_shootout directory
+1. Navigating from your home directory to the penalty_shootout directory
 ```
 cd ./Tufts_Create3_Examples/penalty_shootout
 ```
-Opening the Jupyter Notebook in a web browser & running the code cell. 
+2. Opening the Jupyter Notebook in a web browser & running the code cell. 
 ```
 jupyter notebook
 ```
 
 **Or** use the .py script by:
 
-Moving the script to the example_package folder where the other example_package scripts are located. And adding an entry point to the setup.py file in the package. 
+1. Moving the script to the example_package folder where the other example_package scripts are located. And adding an entry point to the setup.py file in the package. 
 
 For examples of how to send multiple actions in one script please reference [action_drive_sqaure.py](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/example_package/example_package/action_drive_square.py) and [action_drive_square_2.py](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/example_package/example_package/action_drive_square_2.py).
