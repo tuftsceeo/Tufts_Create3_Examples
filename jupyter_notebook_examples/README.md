@@ -24,6 +24,7 @@ cd ./Tufts_Create3_Examples/jupyter_notebook_examples
 jupyter notebook
 ``` 
 NOTE: if you get an error that says "command not available" or are prompted to do so earlier. Insall Jupyter Notebooks with ```sudo apt install jupyter-core```
+
 5. In the browser page, click on a script you wish to run. 
 6. Change the [Namepsace] in the file to match the namespace of your Create®3 robot.
 7. Click on the cell so that it is highlighted in blue & press the run button (toolbar at the top) to run the script. 
