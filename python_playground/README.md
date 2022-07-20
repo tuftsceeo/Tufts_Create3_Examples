@@ -28,7 +28,7 @@ Since the robot uses a few different sensors, now we can take advantage of all o
 We can use the normal "def" format if we want to run that function to access its return value later. See max_obstacles.py as an example.
 
 ## Async:
-You can use async with or without an event decorator. This is when you have a function that you don't want to run immediately in the script (such as the normal "def" function) or run when the event is called. Async is used with a function that is called later, usually in an event function. Async functions can have return values. If you want to run a function where it is in the script, use def. If you want it to run asynchronously and run when you call it, used async def. For example:
+Async functtions can suspend their execution before reaching return, and move to run a different function in that time. You can use async with or without an event decorator. This is when you have a function that you don't want to run immediately in the script (such as the normal "def" function) or run when the event is called. Async is used with a function that is called later, usually in an event function. Async functions can have return values. If you want to run a function where it is in the script, use def. If you want it to run asynchronously and run when you call it, used async def. If you use methods, put an "await" in front. For example:
 ```
 async def forward(robot):
     await robot.set_wheel_speeds(speed, speed)
