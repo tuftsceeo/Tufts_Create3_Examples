@@ -61,11 +61,13 @@ class LEDPublisher(Node):
         Queue size is a quality of service setting that limiits amount of queued messages.
         Basically, we are determining what type of data we want to publish. 
         '''
+        print('Creating publisher')
         self.lights_publisher = self.create_publisher(LightringLeds, namespace + '/cmd_lightring', 10)
         
         '''
         The timer allows the callback to execute every 2 seconds, with a counter iniitialized.
         '''
+        print('Creating a callback timer') 
         timer_period = 2
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.lightring = LightringLeds()
@@ -82,7 +84,7 @@ class LEDPublisher(Node):
         led_colors = [random.choice(all_colors), random.choice(all_colors),random.choice(all_colors),random.choice(all_colors), random.choice(all_colors), random.choice(all_colors)]
         
         current_time = self.get_clock().now()
-
+        print('Changing LEDs to random colors')
         self.lightring.leds = led_colors 
         self.lightring.header.stamp = current_time.to_msg()
         self.lights_publisher.publish(self.lightring)
@@ -91,6 +93,7 @@ class LEDPublisher(Node):
         '''
         This function releases contriol of the lights and "gives" it back to the robot. 
         '''
+        print('Resetting color to white')
         self.lightring.override_system = False
         white = [self.cp.white, self.cp.white, self.cp.white,
                  self.cp.white, self.cp.white, self.cp.white]
@@ -121,6 +124,7 @@ def main(args=None):
         print("Done")  # Destroy the node explicitly
         led_publisher.reset()
         led_publisher.destroy_node()
+        print('shutting down')
         rclpy.shutdown()
 
 
