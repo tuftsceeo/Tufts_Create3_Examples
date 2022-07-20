@@ -28,6 +28,7 @@ class ColorPalette():
     It is essentially converting RGB values to common colors.
     '''
     def __init__(self):
+        print('At this point, all the common colors that will be used later in the script are being initialized.')
         self.red = LedColor(red=255, green=0, blue=0)
         self.green = LedColor(red=0, green=255, blue=0)
         self.blue = LedColor(red=0, green=0, blue=255)
