@@ -4,7 +4,7 @@ In this example, you will learn to control a Create®3 robot with the keyboard o
 
 ## ROS2 Commands 
 
-Great news, the package needed for teleoperation is already imbedded in the ROS 2 environment! We won't use any of the files in this repo. Everything will occur in the command line of the terminal. We will just make slight changes to the parameters of the Create®3 robot and to the node arguments so that it all runs correctly. 
+To install the necessary package and dependencies for this example please follow the "Build Instructions" and "Intitialization Instructions" on this [PAGE](https://github.com/iRobotEducation/create3_examples). We won't use any of the files in this repo. Everything will occur in the command line of the terminal. We will just make slight changes to the parameters of the Create®3 robot and to the node arguments so that it all runs correctly. 
 
 Just a reminder that when you see [Namespace], change that to your robot's namespace. See the [home README.md](https://github.com/brianabouchard/Tufts_Create3_Examples) for an example.
 
