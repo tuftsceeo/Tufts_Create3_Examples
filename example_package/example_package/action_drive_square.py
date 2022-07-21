@@ -21,6 +21,10 @@ These statements import messages and actions.
 from irobot_create_msgs.action import DriveDistance
 from irobot_create_msgs.action import RotateAngle
 
+'''
+Input your namespace here as a global variable. 
+'''
+namespace = '[Namespace]'
 
 
 class DriveDistanceActionClient(Node):
@@ -45,7 +49,7 @@ class DriveDistanceActionClient(Node):
         '''  
         print('Initializing a new action server in order to drive forward')
         self._action_client = ActionClient(
-            self, DriveDistance, '[Namespace]/drive_distance')
+            self, DriveDistance, namespace + '/drive_distance')
 
     def send_goal(self, distance=0.5, max_translation_speed=0.15):
         '''
@@ -131,7 +135,7 @@ class RotateActionClient(Node):
         (self), the type of action (DriveDistance), and the action name ('drive_distance').
         '''
                 
-        self._action_client = ActionClient(self, RotateAngle, '[Namespace]/rotate_angle')
+        self._action_client = ActionClient(self, RotateAngle, namespace + '/rotate_angle')
 
     def send_goal(self, angle=1.57, max_rotation_speed=0.5):
 
