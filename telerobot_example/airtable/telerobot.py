@@ -5,18 +5,19 @@ by Maddie Pero
 
 In this example we will use airtable to remotely control the Create®3.
 '''
-
 import sys
 import rclpy
 from rclpy.node import Node
-import random
+
+'''
+These statements allow us to make get requests of the Airtable API & parse that information
+'''
 import requests
 import json 
 
 '''
 These statements import iRobot Create®3 messages and actions.
 '''
-
 from irobot_create_msgs.msg import WheelVels
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Vector3
