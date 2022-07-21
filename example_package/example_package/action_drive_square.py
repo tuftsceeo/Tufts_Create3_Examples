@@ -42,7 +42,8 @@ class DriveDistanceActionClient(Node):
         '''
         Here we initiate a new action server. We include where to add the action client
         (self), the type of action (DriveDistance), and the action name ('drive_distance').
-        '''       
+        '''  
+        print('Initializing a new action server in order to drive forward')
         self._action_client = ActionClient(
             self, DriveDistance, '[Namespace]/drive_distance')
 
@@ -57,11 +58,13 @@ class DriveDistanceActionClient(Node):
         '''
         This method waits for the action server to be available.
         '''
+        print('Waiting for action server to be available...')
         self._action_client.wait_for_server()
         
         '''
         Sends a goal to the server.
         '''
+        print('Sending goal to server')
         self._send_goal_future = self._action_client.send_goal_async(goal_msg)
         
         '''
@@ -77,6 +80,7 @@ class DriveDistanceActionClient(Node):
         Since there will be no result, we can check and determine if the goal was rejected
         and return early. 
         '''
+        print('Checking if goal was accepted or rejected...')
         goal_handle = future.result()
         if not goal_handle.accepted:
             self.get_logger().info('Goal rejected :(')
@@ -104,7 +108,7 @@ class DriveDistanceActionClient(Node):
         '''
         This shuts down the node.
         '''
-
+        print('Shutting down drive distance action client node.')
         rclpy.shutdown()
         
 
@@ -120,6 +124,7 @@ class RotateActionClient(Node):
         We initialize the class by calling the Node constructor then
         naming our node 'drive_distance_action_client'
         '''
+        print('Initializing a new action server in order to rotate.')
         super().__init__('rotate_action_client')
         '''
         Here we initiate a new action server. We include where to add the action client
@@ -136,10 +141,12 @@ class RotateActionClient(Node):
         '''
         This method waits for the action server to be available.
         '''
+        print('Waiting for action server to be available...')
         self._action_client.wait_for_server()
         '''
         Sends a goal to the server.
-        '''        
+        '''   
+        print('Sending goal to server.')
         self._send_goal_future = self._action_client.send_goal_async(goal_msg)
         '''
         Returns a future to a goal handle. We need to register a callback 
@@ -154,6 +161,7 @@ class RotateActionClient(Node):
         Since there will be no result, we can check and determine if the goal was rejected
         and return early. 
         '''
+        print('Checking if goal was accepted or rejected...')
         goal_handle = future.result()
         if not goal_handle.accepted:
             self.get_logger().info('Goal rejected :(')
@@ -177,6 +185,7 @@ class RotateActionClient(Node):
         '''
         This shuts down the node.
         '''        
+        print('Shutting down rotate action client node.')
         rclpy.shutdown()
         
 def forward(args=None):
@@ -191,6 +200,7 @@ def forward(args=None):
     '''
     Sends a goal and waits until goal is done.
     '''
+    print('send goal 1')
     action_client.send_goal(dist, speed)
     rclpy.spin(action_client)
     '''
@@ -211,6 +221,7 @@ def turn(args=None):
     '''
     Sends a goal and waits until goal is done.
     '''
+    print('send goal 2')
     action_client.send_goal(angle, speed)
     rclpy.spin(action_client)
     time.sleep(0.5)   
