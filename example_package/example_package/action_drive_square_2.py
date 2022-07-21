@@ -17,6 +17,11 @@ import messages/actions
 from irobot_create_msgs.action import DriveDistance
 from irobot_create_msgs.action import RotateAngle
 
+'''
+Input your namespace here as a global variable. 
+'''
+namespace = '[Namespace]'
+
 class SquareActionClient(Node):
     ''' 
     This is an action client. It sends a goal to an action server which sends
@@ -38,9 +43,9 @@ class SquareActionClient(Node):
         of the action 
         '''
         print('Initializing a new action server in order to drive forward.')
-        self.drive = ActionClient(self, DriveDistance, '/[Namespace]/drive_distance')
+        self.drive = ActionClient(self, DriveDistance, namespace + '/drive_distance')
         print('Initializing a new action server in order to rotate.')
-        self.turn = ActionClient(self, RotateAngle, '/[Namespace]/rotate_angle')
+        self.turn = ActionClient(self, RotateAngle, namespace + '/rotate_angle')
   
         '''
         Below we initialize a counter that we will call later so that 
