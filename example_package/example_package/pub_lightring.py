@@ -87,7 +87,7 @@ class LEDPublisher(Node):
         led_colors = [random.choice(all_colors), random.choice(all_colors),random.choice(all_colors),random.choice(all_colors), random.choice(all_colors), random.choice(all_colors)]
         
         current_time = self.get_clock().now()
-        print('Changing LEDs to random colors')
+        print('Changing LEDs to different random colors')
         self.lightring.leds = led_colors 
         self.lightring.header.stamp = current_time.to_msg()
         self.lights_publisher.publish(self.lightring)
