@@ -22,6 +22,11 @@ from irobot_create_msgs.msg import AudioNoteVector
 from irobot_create_msgs.msg import AudioNote 
 from builtin_interfaces.msg import Duration  
 
+'''
+Input your namespace here as a global variable. 
+'''
+namespace = '[Namespace]'
+
 class AudioNotes():
     '''
     Define a class of commonly used audio notes that we can reference later. Each audio note
@@ -42,7 +47,8 @@ class Bump_Sound(Node):
     an audio note. We are defining a class "Bump_Sound" which is a subclass of Node. 
     '''
               
-    def __init__(self, namespace: str = '/[Namespace]'):
+    def __init__(self):
+    #def __init__(self, namespace: str = '/[Namespace]'):
     	'''
     	We initialize the class by calling the Node constructor then naming our node 'bump_sound'
     	'''
