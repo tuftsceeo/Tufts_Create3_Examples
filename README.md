@@ -16,7 +16,7 @@ In any file, if a piece of code is written inside {} brackets it means you shoul
 
 For example, if the namespace of my Create® 3 robot is JonSnow. Then I would want to modify the code accordingly. For example:
 ```
-ros2 topic echo /{Namespace}/battery_state
+ros2 topic echo /[Namespace]/battery_state
 ```
 becomes
 ```
