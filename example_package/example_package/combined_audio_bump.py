@@ -28,6 +28,7 @@ class AudioNotes():
     requires a frequency and max run time.
     '''
     def __init__(self):
+	print('Common audio notes that will be used later in the script are being initialized.')
     	self.audionote1 = AudioNote(frequency=440, max_runtime= Duration(sec=0, nanosec=500000000))
     	self.audionote2 = AudioNote(frequency=660, max_runtime= Duration(sec=0, nanosec=500000000))
     	self.audionote3 = AudioNote(frequency=880, max_runtime= Duration(sec=0, nanosec=500000000))
@@ -50,6 +51,8 @@ class Bump_Sound(Node):
     	'''
     	Then we initialize the subscriber, publisher and action client
     	'''
+	
+	print('Hazard detection (subscriber), audio note (publisherr), and audio note sequence (action) are all initialized.')
     	self.subscription = self.create_subscription(HazardDetectionVector, namespace + '/hazard_detection',self.listener_callback, qos_profile_sensor_data)
     	self.publisher = self.create_publisher(AudioNoteVector, namespace + '/cmd_audio',10)
     	self._action_client = ActionClient(self, AudioNoteSequence, namespace + '/audio_note_sequence')
@@ -74,46 +77,57 @@ class Bump_Sound(Node):
         	
         	if det!= "base_link":
     		    print(det)
+		    print('Determining which bumper was hit...')
     		    if det =="bump_right":
     		        '''
     		        in order to play an audio note we need to publish an audio note to the audio note vector 
     		        topic. Then we can send a goal to play the audio note vector that is currently in the topic
     		        '''
     		        self.audio_note_vector.notes = [self.an.audionote1]
+			print('Publishing specific audio note (right bumper hit) to audio note vector.')
     		        self.publisher.publish(self.audio_note_vector)
     		        self._action_client.note_sequence = self.audio_note_vector
+			print('Sending goal to play audio note vector.')
     		        self.send_goal()
     		    elif det == "bump_left":
     		        '''
     		        repeat that process but with different notes for each bumper that is hit
     		        '''
     		        self.audio_note_vector.notes = [self.an.audionote2]
+    		        print('Publishing specific audio note (left bumper hit) to audio note vector.')
     		        self.publisher.publish(self.audio_note_vector)
     		        self._action_client.note_sequence = self.audio_note_vector
+			print('Sending goal to play audio note vector.')
     		        self.send_goal()
     		    elif det == "bump_front_left":
     		        '''
     		        repeat that process but with different notes for each bumper that is hit
     		        '''
     		        self.audio_note_vector.notes = [self.an.audionote3]
+    		        print('Publishing specific audio note (left front bumper hit) to audio note vector.')
     		        self.publisher.publish(self.audio_note_vector)
     		        self._action_client.note_sequence = self.audio_note_vector
+			print('Sending goal to play audio note vector.')
     		        self.send_goal()				
     		    elif det == "bump_front_right":
     		        '''
     		        repeat that process but with different notes for each bumper that is hit
     		        '''
     		        self.audio_note_vector.notes = [self.an.audionote4]
+    		        print('Publishing specific audio note (right front bumper hit) to audio note vector.')
     		        self.publisher.publish(self.audio_note_vector)
     		        self._action_client.note_sequence = self.audio_note_vector
+			print('Sending goal to play audio note vector.')
     		        self.send_goal()
     		    elif det == "bump_front_center":
     		        '''
     		        repeat that process but with different notes for each bumper that is hit
     		        '''
     		        self.audio_note_vector.notes = [self.an.audionote5]
+    		        print('Publishing specific audio note (front bumper hit) to audio note vector.')
     		        self.publisher.publish(self.audio_note_vector)
     		        self._action_client.note_sequence = self.audio_note_vector
+			print('Sending goal to play audio note vector.')
     		        self.send_goal()
 				
     def send_goal(self):
@@ -123,8 +137,11 @@ class Bump_Sound(Node):
 	function whenever we need to send a goal to the robot
 	'''
     	goal_msg = AudioNoteSequence.Goal()
+	
+	print('Waiting for action server to be available...')
     	self._action_client.wait_for_server()
-    		
+	
+    	print('Action server available. Sending audio note goal to server.')	
     	return self._action_client.send_goal_async(goal_msg) 
 	
 def main(args=None):
