@@ -24,7 +24,7 @@ class IRSubscriber(Node):
     The Node is subscribing to the /ir_intensity topic.
     '''
     
-    def __init__(self, namespace: str = "/[Namespace]"):
+    def __init__(self, namespace: str = "/Drogon"):
         '''
         The following line calls the Node class' constructor and declares a node name,
         which is 'IR_subscriber' in this case. 
@@ -46,7 +46,8 @@ class IRSubscriber(Node):
         This callback function is basically printing what it hears. It runs the data
         it receives in your terminal (msg).  
         '''
-        print('Now printing the message this callback is receiving:')
+        print('Now listening to IR sensor readings it hears...')
+
         self.printIR(msg)
 
     def printIR(self, msg):
@@ -58,7 +59,7 @@ class IRSubscriber(Node):
         The msg is returned from our topic '/ir_intensity.'
         To get components of a message, use the '.' dot operator. 
         '''
-        print('check 1')
+        print('Printing IR sensor readings:')
         for reading in msg.readings: 
         	val = reading.value
         	print("IR Sensor:", val)
