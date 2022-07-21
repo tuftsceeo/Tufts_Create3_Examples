@@ -116,6 +116,7 @@ def main(args=None):
     '''
     The node is "spun" so the callbacks can be called.
     '''
+    print('Callbacks are called')
     try:
         rclpy.spin(led_publisher)
     except KeyboardInterrupt:
