@@ -27,7 +27,7 @@ cd ./Tufts_Create3_Examples/jupyter_notebook_examples
 jupyter notebook
 ``` 
 5. In the browser page, click on a script you wish to run. 
-6. Change the [Namepsace] in the file to match the namespace of your Create®3 robot.
+6. Change the [Namepsace] in the file to match the namespace of your Create® 3 robot.
 7. Click on the cell so that it is highlighted in blue & press the run button (toolbar at the top) to run the script. 
 8. To close the notebook, go back to terminal & type ctrl+c (pc) or cmd+c (mac). It will ask you to confirm you want to exit the notebook. Click "y" to exit.
 
