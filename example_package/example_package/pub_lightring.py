@@ -20,7 +20,10 @@ These statements import iRobot Create®3 messages and actions.
 from irobot_create_msgs.msg import LedColor
 from irobot_create_msgs.msg import LightringLeds
 
-
+'''
+Input your namespace here as a global variable. 
+'''
+namespace = '[Namespace]'
 
 class ColorPalette():      
     '''
@@ -46,7 +49,7 @@ class LEDPublisher(Node):
     The LEDPublisher class is created which is a subclass of Node.
     This defines the class' constructor.
     '''
-    def __init__(self, namespace: str = "/[Namespace]"):    
+    def __init__(self):    
         '''
         The following line calls the Node class's constructor and gives it the Node name,
         which is 'led_publisher.'
