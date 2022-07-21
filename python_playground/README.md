@@ -3,9 +3,9 @@ This folder contains example python files. These files can be used in iRobot™ 
 
 
 ## Events:
-If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async." This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." Because of this, we don't use return values with event functions. Since all the event functions happen at the same time, we would never care to use the return vlaue of one of them.
+If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async" due to the nonparallel nature. This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." Because of this, we don't use return values with event functions. Since all the event functions happen at the same time, we would never care to use the return value of one of them.
 
-Whenever you want a function to be decorated by @event, use async in front of def. Since we want to run these functions when the event tag is called, it is an asynchronous function, thus never running when we get to it in the script. For example:
+Whenever you want a function to be decorated by @event, you must use async in front of def. Since we want to run these functions when the event tag is called, it is an asynchronous function, thus never running when we get to it in the script. For example:
 ```
 @event(robot.when_play)
   async def move(robot):
@@ -28,7 +28,7 @@ Since the robot uses a few different sensors, now we can take advantage of all o
 We can use the normal "def" format if we want to run that function to access its return value later. See max_obstacles.py as an example.
 
 ## Async:
-Async functtions can suspend their execution before reaching return, and move to run a different function in that time. You can use async with or without an event decorator. This is when you have a function that you don't want to run immediately in the script (such as the normal "def" function) or run when the event is called. Async is used with a function that is called later, usually in an event function. Async functions can have return values. If you want to run a function where it is in the script, use def. If you want it to run asynchronously and run when you call it, used async def. If you use methods, put an "await" in front. "Await" can only be used in an async def function. For example:
+Async functions can suspend their execution before reaching return, and move to run a different function in that time. You can use async with or without an event decorator. This is when you have a function that you don't want to run immediately in the script (such as the normal "def" function) or if you want to run when the event is called. Async is used with a function that is called later, usually in an event function. Async functions can have return values. If you want to run a function where it is in the script, use def. If you want it to run asynchronously and run when you call it, used async def. If you use methods, put an "await" in front. "Await" can only be used in an async def function. For example:
 ```
 async def forward(robot):
     await robot.set_wheel_speeds(speed, speed)
@@ -57,7 +57,7 @@ class my_robot:
 ```
 
 ## Methods:
-The robot's methods are all called with await. Methods are lines that tell the robot to do specific actions. It basically just means wait for this to occur until called. For example:
+The robot's methods are all called with await. Methods are lines that tell the robot to do specific actions. It basically just means wait for this to occur until called. Examples of what methods look like:
 ```
 robot.set_wheel_speeds(speed, speed)
 # or
@@ -71,12 +71,13 @@ await robot.set_wheel_speeds(speed, speed)
 ```
 
 ## Cheat Sheet:
-• async doesn't have return values
 
-• async used for events and used with await
+• async is used with events
 
-• def and async def can have return values
+• When methods are in async functions, use await
+
+• def and async def can have return values, but not when tagged by an event
 
 • events happen simultaneously
 
-• events don't use return values
+• event functions don't use return values
