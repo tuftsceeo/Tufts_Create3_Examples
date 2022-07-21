@@ -18,13 +18,15 @@ from irobot_create_msgs.action import RotateAngle
 from irobot_create_msgs.action import DriveArc
 from irobot_create_msgs.action import NavigateToPosition
 
+namespacee = '[Namespace]'
+
 class PenaltyKick(Node):
     def __init__(self):
         super().__init__('penalty_kick')
-        self.drive = ActionClient(self, DriveDistance, '/[Namespace]/drive_distance')
-        self.turn = ActionClient(self, RotateAngle, '/[Namespace]/rotate_angle')
-        self.arc = ActionClient(self, DriveArc, '/[Namespace]/drive_arc')
-        self.pos = ActionClient(self, NavigateToPosition, '/[Namespace]/navigate_to_position')
+        self.drive = ActionClient(self, DriveDistance, namespace + '/drive_distance')
+        self.turn = ActionClient(self, RotateAngle, namespace + '/rotate_angle')
+        self.arc = ActionClient(self, DriveArc, namespace + '/drive_arc')
+        self.pos = ActionClient(self, NavigateToPosition, namespace + '/navigate_to_position')
     
     def move1(self):
       '''
