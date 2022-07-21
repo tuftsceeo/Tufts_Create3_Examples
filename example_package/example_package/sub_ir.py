@@ -58,6 +58,7 @@ class IRSubscriber(Node):
         The msg is returned from our topic '/ir_intensity.'
         To get components of a message, use the '.' dot operator. 
         '''
+        print('check 1')
         for reading in msg.readings: 
         	val = reading.value
         	print("IR Sensor:", val)
