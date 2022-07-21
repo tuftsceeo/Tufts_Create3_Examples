@@ -19,7 +19,7 @@ This statement imports the dock action.
 from irobot_create_msgs.action import DockServo
 
 
-class DockServoActionClient(Node):
+class DockActionClient(Node):
     '''
     This is an action client. Action clients send goal requests to action servers.
     We are defining a class "DriveServoActionClient" which is a subclass of Node. 
@@ -28,9 +28,9 @@ class DockServoActionClient(Node):
     def __init__(self):
         '''
         We initialize the class by calling the Node constructor then
-        naming our node 'dockservo_action_client'
+        naming our node 'dock_action_client'
         '''
-        super().__init__('dockservo_action_client')
+        super().__init__('dock_action_client')
         
         '''
         Here we initiate a new action server. We include where to add the action client
@@ -41,6 +41,7 @@ class DockServoActionClient(Node):
 
     def send_goal(self):
         '''
+        This is the goal message.
         '''
         goal_msg = DockServo.Goal()
         print('Goal message: ' + str(goal_msg))
@@ -57,7 +58,7 @@ class DockServoActionClient(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    dock_client = DockServoActionClient()
+    dock_client = DockActionClient()
     '''
     Sends a goal to the server.
     '''
