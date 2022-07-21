@@ -17,6 +17,10 @@ from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 from irobot_create_msgs.msg import IrIntensityVector
 
+'''
+Input your namespace here as a global variable. 
+'''
+namespace = '[Namespace]'
 
 class IRSubscriber(Node):
     '''
@@ -24,7 +28,7 @@ class IRSubscriber(Node):
     The Node is subscribing to the /ir_intensity topic.
     '''
     
-    def __init__(self, namespace: str = "/Drogon"):
+    def __init__(self):
         '''
         The following line calls the Node class' constructor and declares a node name,
         which is 'IR_subscriber' in this case. 
