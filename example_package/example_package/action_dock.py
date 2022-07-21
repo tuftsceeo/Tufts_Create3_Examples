@@ -37,7 +37,7 @@ class DockActionClient(Node):
         (self), the type of action (DockServo), and the action name ('dock').
         '''  
         print('Initiating a new action server...')
-        self._action_client = ActionClient(self, DockServo, 'Ygritte/dock')
+        self._action_client = ActionClient(self, DockServo, '[Namespace]/dock')
 
     def send_goal(self):
         '''
