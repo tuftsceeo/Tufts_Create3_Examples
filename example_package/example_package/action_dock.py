@@ -37,18 +37,18 @@ class DockServoActionClient(Node):
         (self), the type of action (DockServo), and the action name ('dock').
         '''  
         print('Initiating a new action server...')
-        self._action_client = ActionClient(self, DockServo, '[Namespace]/dock')
+        self._action_client = ActionClient(self, DockServo, 'Ygritte/dock')
 
     def send_goal(self):
         '''
         '''
         goal_msg = DockServo.Goal()
-        print('Goal message is ' + str(goal_msg))
+        print('Goal message: ' + str(goal_msg))
         
         '''
         This method waits for the action server to be available.
         '''
-        print('Waiting for action server to be available...')
+
         self._action_client.wait_for_server()
         
         return self._action_client.send_goal_async(goal_msg)
