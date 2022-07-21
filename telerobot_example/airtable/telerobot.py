@@ -22,13 +22,15 @@ from irobot_create_msgs.msg import WheelVels
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Vector3
 
+namespace = '[Namespace]'
+
 
 class WheelVel(Node):
     '''
     The WheelVel class is created which is a subclass of Node.
     This defines the class' constructor.
     '''
-    def __init__(self, namespace: str = "/[Namespace]"):    
+    def __init__(self):    
         '''
         The following line calls the Node class's constructor and gives it the Node name,
         which is 'wheel_vel.'
