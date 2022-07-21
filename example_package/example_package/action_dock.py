@@ -18,6 +18,10 @@ This statement imports the dock action.
 '''
 from irobot_create_msgs.action import DockServo
 
+'''
+Input your namespace here as a global variable. 
+'''
+namespace = '[Namespace]'
 
 class DockActionClient(Node):
     '''
@@ -37,7 +41,7 @@ class DockActionClient(Node):
         (self), the type of action (DockServo), and the action name ('dock').
         '''  
         print('Initiating a new action server...')
-        self._action_client = ActionClient(self, DockServo, '[Namespace]/dock')
+        self._action_client = ActionClient(self, DockServo, namespace + '/dock')
 
     def send_goal(self):
         '''
