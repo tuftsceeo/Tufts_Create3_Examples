@@ -22,6 +22,9 @@ from irobot_create_msgs.msg import WheelVels
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Vector3
 
+'''
+edit the namespace to match the namespace of your robot
+'''
 namespace = '[Namespace]'
 
 
