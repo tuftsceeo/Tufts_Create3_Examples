@@ -23,6 +23,8 @@ from rcl_interfaces.msg import ParameterType
 from rcl_interfaces.msg import ParameterValue 
 from rcl_interfaces.msg import Parameter
 
+namespace = '[Namespace]'
+
 class PenaltyKick1(Node):
 
     def __init__(self):
@@ -30,11 +32,11 @@ class PenaltyKick1(Node):
     	'''
     	Here we initialize each of the action clients we are going to use & the interface service client.
     	'''
-    	self.client = self.create_client(SetParameters, '/JonSnow/motion_control/set_parameters')
-    	self.drive = ActionClient(self, DriveDistance, '/JonSnow/drive_distance')
-    	self.turn = ActionClient(self, RotateAngle, '/JonSnow/rotate_angle')
-    	self.arc = ActionClient(self, DriveArc, '/JonSnow/drive_arc')
-    	self.pos = ActionClient(self, NavigateToPosition, '/JonSnow/navigate_to_position')
+    	self.client = self.create_client(SetParameters, namespace + '/motion_control/set_parameters')
+    	self.drive = ActionClient(self, DriveDistance, namespace + '/drive_distance')
+    	self.turn = ActionClient(self, RotateAngle, namespace + '/rotate_angle')
+    	self.arc = ActionClient(self, DriveArc, namespace + '/drive_arc')
+    	self.pos = ActionClient(self, NavigateToPosition, namespace + '/navigate_to_position')
     	
     def set_params(self):
         '''
