@@ -18,6 +18,10 @@ This statement imports the undock action.
 '''
 from irobot_create_msgs.action import Undock
 
+'''
+Input your namespace here as a global variable. 
+'''
+namespace = '[Namespace]'
 
 class UndockingActionClient(Node):
     '''
@@ -37,7 +41,7 @@ class UndockingActionClient(Node):
         (self), the type of action (DockServo), and the action name ('dock').
         '''  
         print('Initiating a new action server...')
-        self._action_client = ActionClient(self, Undock, '[Namespace]/undock')
+        self._action_client = ActionClient(self, Undock, namespace + '/undock')
 
     def send_goal(self):
         '''
