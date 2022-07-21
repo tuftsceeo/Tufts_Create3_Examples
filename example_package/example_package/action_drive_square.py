@@ -45,7 +45,7 @@ class DriveDistanceActionClient(Node):
         '''  
         print('Initializing a new action server in order to drive forward')
         self._action_client = ActionClient(
-            self, DriveDistance, '[Namespace]/drive_distance')
+            self, DriveDistance, 'Ygritte/drive_distance')
 
     def send_goal(self, distance=0.5, max_translation_speed=0.15):
         '''
@@ -64,7 +64,7 @@ class DriveDistanceActionClient(Node):
         '''
         Sends a goal to the server.
         '''
-        print('Sending goal to server')
+        print('Action server available. Sending drive goal to server.')
         self._send_goal_future = self._action_client.send_goal_async(goal_msg)
         
         '''
@@ -131,7 +131,7 @@ class RotateActionClient(Node):
         (self), the type of action (DriveDistance), and the action name ('drive_distance').
         '''
                 
-        self._action_client = ActionClient(self, RotateAngle, '[Namespace]/rotate_angle')
+        self._action_client = ActionClient(self, RotateAngle, 'Ygritte/rotate_angle')
 
     def send_goal(self, angle=1.57, max_rotation_speed=0.5):
 
@@ -146,7 +146,7 @@ class RotateActionClient(Node):
         '''
         Sends a goal to the server.
         '''   
-        print('Sending goal to server.')
+        print('Action server available. Sending rotate goal to server.')
         self._send_goal_future = self._action_client.send_goal_async(goal_msg)
         '''
         Returns a future to a goal handle. We need to register a callback 
@@ -200,7 +200,7 @@ def forward(args=None):
     '''
     Sends a goal and waits until goal is done.
     '''
-    print('send goal 1')
+
     action_client.send_goal(dist, speed)
     rclpy.spin(action_client)
     '''
@@ -221,7 +221,7 @@ def turn(args=None):
     '''
     Sends a goal and waits until goal is done.
     '''
-    print('send goal 2')
+
     action_client.send_goal(angle, speed)
     rclpy.spin(action_client)
     time.sleep(0.5)   
