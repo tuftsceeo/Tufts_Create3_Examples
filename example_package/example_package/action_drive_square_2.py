@@ -36,20 +36,22 @@ class SquareActionClient(Node):
         Then we initilaize two action clients. One to drive the robot and one to turn it. 
         We include where to add the action client (self), the type of action, and the name
         of the action 
-        '''        
+        '''
+        print('Initializing a new action server in order to drive forward.')
         self.drive = ActionClient(self, DriveDistance, '/[Namespace]/drive_distance')
+        print('Initializing a new action server in order to rotate.')
         self.turn = ActionClient(self, RotateAngle, '/[Namespace]/rotate_angle')
   
         '''
         Below we initialize a counter that we will call later so that 
-        the robot only drives one square
+        the robot only drives one square.
         '''
         self.i = 0 
 
     def send_drive(self):
         '''
-        this function defines the goal message to drive the robot down one side of the 
-        sqaure and then sends the goal to the robot
+        This function defines the goal message to drive the robot down one side of the 
+        square and then sends the goal to the robot.
         '''
         goal_msg = DriveDistance.Goal()
         goal_msg.distance = 0.3
@@ -58,11 +60,13 @@ class SquareActionClient(Node):
         ''' 
         this method waits for a the action server to be available
         '''
+        print('Waiting for action server to be available...')
         self.drive.wait_for_server()
         
         '''
         then we send the the goal to the server
         '''
+        print('Action server available. Sending drive goal to server.')
         self._send_goal_future = self.drive.send_goal_async(goal_msg)
         
         '''
@@ -73,13 +77,15 @@ class SquareActionClient(Node):
         
     def send_turn(self):
         '''
-        Here we repeat the same process but to turn the corner of the square
+        Here we repeat the same process but to turn the corner of the square.
         '''
         goal_msg_turn = RotateAngle.Goal()
         goal_msg_turn.angle = 1.57
         goal_msg_turn.max_rotation_speed = 1.0
         
+        print('Waiting for action server to be available...')
         self.turn.wait_for_server()
+        print('Action server available. Sending turn goal to server.')
         self._send_goal_future = self.turn.send_goal_async(goal_msg_turn)
         self._send_goal_future.add_done_callback(self.turn_response_callback)
 
@@ -90,6 +96,7 @@ class SquareActionClient(Node):
         Since there will be no result, we can check and determine if the goal was rejected
         and return early
         '''
+        print('Checking if goal was accepted or rejected...')
         goal_handle = future.result()
         if not goal_handle.accepted:
             self.get_logger().info('Goal rejected :(')
@@ -150,6 +157,7 @@ class SquareActionClient(Node):
         	print('now drive')
         	self.send_drive()
         else:
+            print('Shutting down action client node.')
         	rclpy.shutdown()
         
 
