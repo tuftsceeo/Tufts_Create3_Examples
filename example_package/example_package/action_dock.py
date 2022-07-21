@@ -67,6 +67,7 @@ def main(args=None):
     When an action server accepts or rejects the goal, future is completed.
     '''
     rclpy.spin_until_future_complete(dock_client, future)
+    print('Robot is docking. Shutting down action dock client node.')
     rclpy.shutdown()
 
 if __name__ == '__main__':
