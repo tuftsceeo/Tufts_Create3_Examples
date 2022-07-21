@@ -34,6 +34,7 @@ class IRSubscriber(Node):
         This line indicates that the node is subscribing to the IrIntensityVector
         type over the '/ir_intensity' topic. 
         '''
+        print('Creating subscription to to the IrIntensityVector type over the /ir_intensity topic')
         self.subscription = self.create_subscription(
             IrIntensityVector, namespace + '/ir_intensity', self.listener_callback,
             qos_profile_sensor_data)
@@ -45,6 +46,7 @@ class IRSubscriber(Node):
         This callback function is basically printing what it hears. It runs the data
         it receives in your terminal (msg).  
         '''
+        print('Now printing the message this callback is receiving:')
         self.printIR(msg)
 
     def printIR(self, msg):
@@ -73,6 +75,7 @@ def main(args=None):
     '''
     The node is then "spun" so its callbacks are called.
     '''
+    print('Callbacks are called.')
     try:
         rclpy.spin(IR_subscriber)
     except KeyboardInterrupt:
