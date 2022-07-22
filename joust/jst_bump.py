@@ -41,13 +41,14 @@ class BumperTurn(Node):
         return self._action_client.send_goal_async(goal_msg)
 
 def turn(args=None):
-    angle = 3.14
+    angle = 1.57
     speed = 0.5   
 
     rclpy.init(args=args)
     action_client = BumperTurn()
 
-    action_client.send_goal(angle, speed)
+    #action_client.send_goal(angle, speed)
+    action_client.send_goal()
     rclpy.spin(action_client)
     time.sleep(0.5)
 

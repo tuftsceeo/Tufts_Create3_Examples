@@ -9,6 +9,16 @@ from rclpy.action import ActionClient
 from irobot_create_msgs.action import RotateAngle
 from irobot_create_msgs.action import DriveArc
 
+# radius = 0.2 --> 2.5 in
+# radius = 0.3 --> 10 in
+# radius = 0.8 --> 48 in
+
+distance = 10
+
+radius = (distance/75) + 0.16
+print(radius)
+translate_direction=1
+max_translation_speed=0.3
 
 class DriveArcActionClient(Node):
     def __init__(self):
@@ -18,7 +28,7 @@ class DriveArcActionClient(Node):
         self._action_client = ActionClient(
             self, DriveArc, 'Ygritte/drive_arc')
 
-    def send_goal(self, angle=3.14, radius=0.3, translate_direction=1, max_translation_speed=0.3):
+    def send_goal(self, angle, radius, translate_direction, max_translation_speed):
         goal_msg = DriveArc.Goal()
         goal_msg.angle = angle
         goal_msg.max_translation_speed = max_translation_speed
@@ -52,20 +62,28 @@ class DriveArcActionClient(Node):
 
         rclpy.shutdown()
 
-def arc(args=None):
+def arc1(args=None):
     angle = 3.14
-    speed = 0.3   
 
     rclpy.init(args=args)
     action_client = DriveArcActionClient()
 
-    #action_client.send_goal(angle, 0.3, 1, speed)
-    action_client.send_goal()
+    action_client.send_goal(angle, radius, translate_direction, max_translation_speed)
+    rclpy.spin(action_client)
+
+def arc2(args=None):
+    angle = -3.14
+    
+    rclpy.init(args=args)
+    action_client = DriveArcActionClient()
+
+    action_client.send_goal(angle, radius, translate_direction, max_translation_speed)
     rclpy.spin(action_client)
 
     
 def main(args=None):
-    arc()
+    arc1()
+    arc2()
 
 
 if __name__ == '__main__':
