@@ -45,20 +45,23 @@ class ArcTurnClient(Node):
             if det != "base_link":
                 print(det)
                 if det == "bump_right":
-                    self.send_turn(max_rotation_speed, angle=-2.89)
+                    self.send_turn(max_rotation_speed, angle=0.25)
                 elif det == "bump_left":
                     self.send_turn(max_rotation_speed, angle=-0.25)
                 elif det == "bump_front_left":
                     self.send_turn(max_rotation_speed, angle=-1.3)
                 elif det == "bump_front_right":
-                    self.send_turn(max_rotation_speed, angle=-1.84)
+                    self.send_turn(max_rotation_speed, angle=1.3)
                 elif det == "bump_front_center":
-                    self.send_turn(max_rotation_speed, angle=-1.57)
+                    self.send_turn(max_rotation_speed, angle=1.57)
 
 
     def send_arc(self, angle=3.14, radius=0.3, translate_direction=1, max_translation_speed=0.3):
         print('2')
-        angle=3.14
+        if (int(self.i) % 2) == 0: 
+            angle=3.14
+        else:
+            angle = -3.14
         radius=0.3
         translate_direction=1
         max_translation_speed=0.3
