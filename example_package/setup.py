@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': ['subscribe = example_package.sub_ir:main','publish = example_package.pub_lightring:main', 'action = example_package.action_drive_square:main', 'action2 = example_package.action_drive_square_2:main', 'combined = example_package.combined_audio_bump:main',
-                            'dock = example_package.action_dock:main', 'undock = example_package.action_undock:main'
+                            'dock = example_package.action_dock:main', 'undock = example_package.action_undock:main', 'tcp=example_package.tcp_node:main'
         ],
     },
 )
