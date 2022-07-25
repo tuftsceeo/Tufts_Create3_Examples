@@ -163,7 +163,7 @@ class SquareActionClient(Node):
         	self.send_drive()
         else:
             print('Shutting down action client node.')
-        	rclpy.shutdown()
+            rclpy.shutdown()
         
 def main(args=None):
     '''
