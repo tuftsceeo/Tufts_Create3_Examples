@@ -45,15 +45,15 @@ class ArcTurnClient(Node):
             if det != "base_link":
                 print(det)
                 if det == "bump_right":
-                    self.send_turn(max_rotation_speed, angle=0.25)
+                    self.send_turn(max_rotation_speed, angle=-2.89)
                 elif det == "bump_left":
                     self.send_turn(max_rotation_speed, angle=-0.25)
                 elif det == "bump_front_left":
                     self.send_turn(max_rotation_speed, angle=-1.3)
                 elif det == "bump_front_right":
-                    self.send_turn(max_rotation_speed, angle=1.3)
+                    self.send_turn(max_rotation_speed, angle=-1.84)
                 elif det == "bump_front_center":
-                    self.send_turn(max_rotation_speed, angle=1.57)
+                    self.send_turn(max_rotation_speed, angle=-1.57)
 
 
     def send_arc(self, angle=3.14, radius=0.3, translate_direction=1, max_translation_speed=0.3):
@@ -85,6 +85,7 @@ class ArcTurnClient(Node):
         self.turn.wait_for_server()
         self._send_goal_future = self.turn.send_goal_async(goal_msg_turn)
         self._send_goal_future.add_done_callback(self.turn_response_callback)
+        time.sleep(2)
         
     def send_drive(self, distance=0.5, max_translation_speed=0.15):
 
@@ -176,7 +177,7 @@ def main(args=None):
     speed = 0.15
     arcturn_action_client.send_drive()
     print('9')
-    time.sleep(2)
+    time.sleep(4)
     
     
     print(10)
