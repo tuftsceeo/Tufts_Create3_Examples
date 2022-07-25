@@ -21,7 +21,7 @@ class ArcTurnClient(Node):
     def __init__(self):
         print(11)
         
-        # publish to hazard detection
+
         super().__init__('arcturn_action_client')
         self.drive = ActionClient(self, DriveDistance, 'Ygritte/drive_distance')
         print(12)
@@ -63,15 +63,17 @@ class ArcTurnClient(Node):
         translate_direction=1
         max_translation_speed=0.3
         goal_msg = DriveArc.Goal()
+        print(3)
         goal_msg.angle = angle
         goal_msg.max_translation_speed = max_translation_speed
         goal_msg.radius = radius
         goal_msg.translate_direction = translate_direction
-
-        self.arc.wait_for_server()
         
+        print(4)
+        self.arc.wait_for_server()
+        print(5)
         self._send_goal_future = self.arc.send_goal_async(goal_msg)
-
+        print(6)
         self._send_goal_future.add_done_callback(self.arc_response_callback)
         
         
@@ -86,22 +88,9 @@ class ArcTurnClient(Node):
         self._send_goal_future = self.turn.send_goal_async(goal_msg_turn)
         self._send_goal_future.add_done_callback(self.turn_response_callback)
         
-    def send_drive(self, distance=0.5, max_translation_speed=0.15):
-
-        goal_msg = DriveDistance.Goal()
-        goal_msg.distance = 0.3
-        goal_msg.max_translation_speed = 1.0
-
-        print('Waiting for action server to be available...')
-        self.drive.wait_for_server()
-
-        print('Sending drive goal to server.')
-        self._send_goal_future = self.drive.send_goal_async(goal_msg)
-
-        self._send_goal_future.add_done_callback(self.drive_response_callback)
 
     def arc_response_callback(self, future):
-        print('4')
+        print('arc response')
         goal_handle = future.result()
         if not goal_handle.accepted:
             self.get_logger().info('Goal rejected :(')
@@ -126,17 +115,6 @@ class ArcTurnClient(Node):
         self._get_result_future = goal_handle.get_result_async()
         self._get_result_future.add_done_callback(self.turn_result_callback)
         
-    def drive_response_callback(self, future):
-
-        print('Checking if goal was accepted or rejected...')
-        goal_handle = future.result()
-        if not goal_handle.accepted:
-            self.get_logger().info('Goal rejected :(')
-            return
-
-        self.get_logger().info('Drive goal accepted :)')
-        self._get_result_future = goal_handle.get_result_async()
-        self._get_result_future.add_done_callback(self.drive_result_callback)
 
     def arc_result_callback(self, future):
         print('6')
@@ -158,10 +136,6 @@ class ArcTurnClient(Node):
             print('Shutting down action client node.')
             rclpy.shutdown()
 
-    def drive_result_callback(self, future):
-
-        result = future.result().result
-        self.get_logger().info('Result: {0}'.format(result))
         
         
 
@@ -171,11 +145,8 @@ def main(args=None):
     rclpy.init(args=args)
     
     arcturn_action_client = ArcTurnClient()
-    #dist  = 0.5
-    speed = 0.15
-    arcturn_action_client.send_drive()
     print('9')
-    time.sleep(2)
+
     
     
     print(10)
