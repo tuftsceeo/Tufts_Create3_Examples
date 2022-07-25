@@ -153,6 +153,7 @@ class ArcTurnClient(Node):
         #self.send_arc()
         if self.i < barrels:
             self.i += 1
+            print('self.i is ' + str(self.i))
             self.send_arc()
         else:
             print('Shutting down action client node.')
