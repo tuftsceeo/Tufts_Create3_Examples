@@ -165,7 +165,6 @@ class SquareActionClient(Node):
             print('Shutting down action client node.')
         	rclpy.shutdown()
         
-
 def main(args=None):
     '''
     Initializes ROS2 and creates an instance of 
