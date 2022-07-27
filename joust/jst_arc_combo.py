@@ -10,16 +10,13 @@ from irobot_create_msgs.action import DriveArc
 from irobot_create_msgs.action import WallFollow
 from builtin_interfaces.msg import Duration
 
-# radius = 0.2 --> 2.5 in
-# radius = 0.3 --> 10 in
-# radius = 0.8 --> 48 in
-
 distance = 10
 
 radius = (distance/75) + 0.16
 print(radius)
 translate_direction=1
 max_translation_speed=0.3
+namespace = 'Ygritte'
 
 class DriveArcActionClient(Node):
     def __init__(self):
@@ -27,7 +24,7 @@ class DriveArcActionClient(Node):
         super().__init__('drive_arc_action_client')
            
         self._action_client = ActionClient(
-            self, DriveArc, 'Ygritte/drive_arc')
+            self, DriveArc, namespace + '/drive_arc')
 
     def send_goal(self, angle, radius, translate_direction, max_translation_speed):
         goal_msg = DriveArc.Goal()
@@ -66,8 +63,8 @@ class DriveArcActionClient(Node):
 class WallFollowActionClient(Node):
     def __init__(self):
         super().__init__('wall_follow_action_client')
-        self.subscription = self.create_subscription(HazardDetectionVector, 'Ygritte/hazard_detection', self.listener_callback, qos_profile_sensor_data)
-        self._action_client = ActionClient(self, WallFollow, 'Ygritte/wall_follow')
+        self.subscription = self.create_subscription(HazardDetectionVector, namespace + '/hazard_detection', self.listener_callback, qos_profile_sensor_data)
+        self._action_client = ActionClient(self, WallFollow, namespace + '/wall_follow')
 
 
     def listener_callback(self, msg):
