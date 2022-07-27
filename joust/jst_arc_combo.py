@@ -17,6 +17,7 @@ print(radius)
 translate_direction=1
 max_translation_speed=0.3
 namespace = 'Ygritte'
+counter = 0
 
 class DriveArcActionClient(Node):
     def __init__(self):
