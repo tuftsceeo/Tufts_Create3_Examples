@@ -1,5 +1,6 @@
 import sys
 import rclpy
+import time
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 
@@ -9,6 +10,11 @@ from irobot_create_msgs.action import RotateAngle
 from irobot_create_msgs.action import DriveArc
 from irobot_create_msgs.action import WallFollow
 from builtin_interfaces.msg import Duration
+from irobot_create_msgs.action import DriveDistance
+
+# radius = 0.2 --> 2.5 in
+# radius = 0.3 --> 10 in
+# radius = 0.8 --> 48 in
 
 distance = 10
 
@@ -26,7 +32,8 @@ class DriveArcActionClient(Node):
            
         self._action_client = ActionClient(
             self, DriveArc, namespace + '/drive_arc')
-
+        self.drive = ActionClient(self, DriveDistance, namespace + '/drive_distance')
+        
     def send_goal(self, angle, radius, translate_direction, max_translation_speed):
         goal_msg = DriveArc.Goal()
         goal_msg.angle = angle
@@ -35,12 +42,15 @@ class DriveArcActionClient(Node):
         goal_msg.translate_direction = translate_direction
 
         self._action_client.wait_for_server()
-        
+        print('here1')
 
         self._send_goal_future = self._action_client.send_goal_async(goal_msg)
+        print('here2')
 
         self._send_goal_future.add_done_callback(self.goal_response_callback)
+        print('here3')
 
+        
     def send_drive(self, distance=0.5, max_translation_speed=0.15):
 
         goal_msg = DriveDistance.Goal()
@@ -77,7 +87,7 @@ class DriveArcActionClient(Node):
 
         self.get_logger().info('Drive goal accepted :)')
         self._get_result_future = goal_handle.get_result_async()
-        self._get_result_future.add_done_callback(self.drive_result_callback)   
+        self._get_result_future.add_done_callback(self.drive_result_callback)        
 
 
     def get_result_callback(self, future):
@@ -86,11 +96,12 @@ class DriveArcActionClient(Node):
         self.get_logger().info('Result: {0}'.format(result))
 
         rclpy.shutdown()
-        
+
     def drive_result_callback(self, future):
 
         result = future.result().result
         self.get_logger().info('Result: {0}'.format(result))
+
         
 class WallFollowActionClient(Node):
     def __init__(self):
@@ -120,15 +131,23 @@ class WallFollowActionClient(Node):
         print('Ready for Action')
          
         goal_msg = WallFollow.Goal()
+        print(1)
         goal_msg.follow_side = follow_side
+        print(2)
             
         goal_msg.max_runtime = Duration(sec=10, nanosec=0)
-         
+        print(3)
         self._action_client.wait_for_server()
+        print(4)
         return self._action_client.send_goal_async(goal_msg)
 
 def arc1(args=None):
     global counter
+    angle = 3.14
+
+    rclpy.init(args=args)
+    action_client = DriveArcActionClient()
+    speed = 0.15
     if (counter % 2) == 0: 
         angle=3.14
     else:
@@ -137,26 +156,41 @@ def arc1(args=None):
     if counter == 0:
         action_client.send_drive()
     counter += 1
-    rclpy.init(args=args)
-    speed = 0.15
-    
-    action_client = DriveArcActionClient()
     time.sleep(2)
+
     action_client.send_goal(angle, radius, translate_direction, max_translation_speed)
     rclpy.spin(action_client)
+
+def arc2(args=None):
+    
+    angle = -3.14
+    
+    rclpy.init(args=args)
+    action_client1 = DriveArcActionClient()
+    print('arc2a')
+    action_client1.send_goal(angle, radius, translate_direction, max_translation_speed)
+    print('arc2b')
+    rclpy.spin(action_client1)
+    print('arc2c')
     
 def wall(args=None):
     rclpy.init(args=args)
+    print(5)
      
-    action_client = WallFollowActionClient()
-    action_client.send_goal(follow_side=1, max_runtime=10)
+    wall_client = WallFollowActionClient()
+    print(6)
+    wall_client.send_goal(follow_side=1, max_runtime=10)
+    print(7)
     rclpy.spin(action_client)
+    print(8)
+
 
     
 
 def main(args=None):
     for i in range(2):
-      arc1()
+        arc1()
+    print('done')
     wall()
 
 
