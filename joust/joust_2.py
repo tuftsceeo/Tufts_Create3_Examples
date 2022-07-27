@@ -16,6 +16,9 @@ count = int(barrels - 1)
 max_rotation_speed=0.5
 radius = (distance/75) + 0.16
 
+'''
+First action client class. 
+'''
 class ArcTurnClient(Node):
 
     def __init__(self):
@@ -51,6 +54,9 @@ class ArcTurnClient(Node):
 
 
     def send_arc(self, angle=3.14, translate_direction=1, max_translation_speed=0.3):
+        '''
+        This function sends the arc goal (opposite directions for each iteration).
+        '''
         if (int(self.i) % 2) == 0: 
             angle=3.14
         else:
