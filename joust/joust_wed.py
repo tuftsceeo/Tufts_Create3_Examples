@@ -181,7 +181,7 @@ def wall(args=None):
     print(6)
     wall_client.send_goal(follow_side=1, max_runtime=10)
     print(7)
-    rclpy.spin(action_client)
+    rclpy.spin(wall_client)
     print(8)
 
 
