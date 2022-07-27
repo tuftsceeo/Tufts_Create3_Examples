@@ -2,12 +2,13 @@ import sys
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
+
 from irobot_create_msgs.msg import HazardDetectionVector
-
-
 from rclpy.action import ActionClient
 from irobot_create_msgs.action import RotateAngle
 from irobot_create_msgs.action import DriveArc
+from irobot_create_msgs.action import WallFollow
+from builtin_interfaces.msg import Duration
 
 # radius = 0.2 --> 2.5 in
 # radius = 0.3 --> 10 in
@@ -61,6 +62,41 @@ class DriveArcActionClient(Node):
         self.get_logger().info('Result: {0}'.format(result))
 
         rclpy.shutdown()
+        
+class WallFollowActionClient(Node):
+    def __init__(self):
+        super().__init__('wall_follow_action_client')
+        self.subscription = self.create_subscription(HazardDetectionVector, 'Ygritte/hazard_detection', self.listener_callback, qos_profile_sensor_data)
+        self._action_client = ActionClient(self, WallFollow, 'Ygritte/wall_follow')
+
+
+    def listener_callback(self, msg):
+        for detection in msg.detections:
+            det = detection.header.frame_id
+            if det != "base_link":
+               print(det)
+               if det == "bump_right":
+                   self.send_goal(follow_side=-1)
+               elif det == "bump_left":
+                   self.send_goal(follow_side=1)
+               elif det == "bump_front_right":
+                   self.send_goal(follow_side=-1)
+               elif det == "bump_front_left":
+                   self.send_goal(follow_side=1)
+               elif det == "bump_front_center":
+                   pass
+     
+ 
+    def send_goal(self, follow_side=1, max_runtime=10):
+        print('Ready for Action')
+         
+        goal_msg = WallFollow.Goal()
+        goal_msg.follow_side = follow_side
+            
+        goal_msg.max_runtime = Duration(sec=10, nanosec=0)
+         
+        self._action_client.wait_for_server()
+        return self._action_client.send_goal_async(goal_msg)
 
 def arc1(args=None):
     angle = 3.14
@@ -79,11 +115,20 @@ def arc2(args=None):
 
     action_client.send_goal(angle, radius, translate_direction, max_translation_speed)
     rclpy.spin(action_client)
+    
+def wall(args=None):
+    rclpy.init(args=args)
+     
+    action_client = WallFollowActionClient()
+    action_client.send_goal(follow_side=1, max_runtime=10)
+    rclpy.spin(action_client)
 
     
+
 def main(args=None):
     arc1()
     arc2()
+    wall()
 
 
 if __name__ == '__main__':
