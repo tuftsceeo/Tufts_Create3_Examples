@@ -2,10 +2,10 @@
 
 The beauty of a Juypter Notebook is that it simplifies the coding process by bypassing the compiling, building, package hastle. Don't worry you will get to that later.
 
-There are 5 scripts in this jupyter notebook folder. An example of how to publish to a topic, an example of how to subscribe to a topic, two examples of how to send actions to the robot (two because both of us are stubborn and wanted to figure it out in different ways), and one eample of how to do all three at once. Subscribing, publishing and sending actions are the basic skills you will need to control the iRobot™ Education's Create®3 Educational Robot.
+These scripts are meant to teach the basics of subscribing, publishing and sending actions which are all the necessary commands to control the iRobot™ Education's Create®3 Educational Robot.
 
 ## Get Started
-0. If you have not downloaded the zip file of the repo, go back to the [home page](https://github.com/brianabouchard/Tufts_Create3_Examples) and follow the directions on that README.md to do so. 
+0. Download and unzip the repository as previously [directed](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/README.md). 
 
 1. Install pip on your machine:
 ```
@@ -20,7 +20,7 @@ sudo apt install jupyter-core
 ```
 3. In terminal, navigate from your home directory to this directory. 
 ```
-cd ./Tufts_Create3_Examples/jupyter_notebook_examples
+cd Tufts_Create3_Examples-main/Jupyter_Notebook
 ```
 4. Open the files in a browser with the following command. If the web browser does not automatically populate, click the provided link. 
 ```
