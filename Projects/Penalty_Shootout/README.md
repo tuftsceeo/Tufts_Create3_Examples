@@ -1,31 +1,39 @@
-# iRobot™ Education's Create® 3 is the new Alex Morgan, Mo Salah or Edouard Mendy. 
+# iRobot™ Education's Create® 3 Robot is the new Alex Morgan, Mo Salah or Edouard Mendy. 
 
-Design soccer players (that will sit on top of your Create® 3 robot) to shoot a penalty kick or save one and code your Create® 3 robot to fake out the opponent. 
+Design soccer players (that will sit on top of your Create® 3 robot) to shoot a penalty kick or save one and code your Create® 3 robot to fake out the opponent. We used a ping pong ball in place of a soccer ball but get creative with your choice of sports equipment. 
 
 Rules for the shootout are as follow: 
 1. Goalkeepers can only move side to side. 
-2. Shooters must shoot before taped line.
+2. Shooters must shoot before a taped line.
 3. Both teams must press run on their code at the same time. 
 4. The ball must be in your contraption before your start the code. 
 5. No teleop. 
 
-### Use These Scripts
+## Get Started
 
-0. If you have not downloaded the zip file of the repo, go back to the [home page](https://github.com/brianabouchard/Tufts_Create3_Examples) and follow the directions on that README.md to do so. 
+0. Download and unzip the repository as previously [directed](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/README.md).
 
-**Either** use the Jypter Notebook by:
+**Either use the Jupyter file**
+1. Install Jupyter Notebooks as explained in the [Code](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/Code/Jupyter_Notebook/README.md) folder.
 
-1. Navigating from your home directory to the penalty_shootout directory
+2. Navigate from your home directory to this directory 
 ```
-cd ./Tufts_Create3_Examples/penalty_shootout
+cd Tufts_Create3_Examples-main/Projects/Penalty_Shootout
 ```
-2. Opening the Jupyter Notebook in a web browser & running the code cell. 
+3. Launch the Jupyter Notebook browser
 ```
 jupyter notebook
 ```
+4. Select the penalty_kick.ipynb file and edit the namespace to match your robot's namespace
+5. Highligh the code cell so that it turns blue and press run
 
-**Or** use the .py script by:
-
-1. Moving the script to the example_package folder where the other example_package scripts are located. And adding an entry point to the setup.py file in the package. 
-
-For examples of how to send multiple actions in one script please reference [action_drive_sqaure.py](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/example_package/example_package/action_drive_square.py) and [action_drive_square_2.py](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/example_package/example_package/action_drive_square_2.py).
+**Or use the python file**
+1. Navigate from your home directory to this directory 
+```
+cd Tufts_Create3_Examples-main/Projects/Penalty_Shootout
+```
+2. Edit the namespace in the file to match your robot's namespace
+3. Run the script with 
+```
+cd python3 penalty_kick.py
+```
