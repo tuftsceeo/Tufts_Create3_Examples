@@ -11,7 +11,7 @@ follows the format of P = P0 + error*Kp.
 ```
 cd Tufts_Create3_Examples-main/Invisible_Springs
 ```
-2.Change the namespace & IP address of the robot in the scripts
+2. Change the namespace & IP address of the robot in the scripts
 3. Run the script with the command
 ```
 python3 invisible_springs.py
