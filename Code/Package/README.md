@@ -2,7 +2,7 @@
 
 This folder contains an example package to run ROS 2 Python client library scripts. These scripts are meant to teach the basics of subscribing, publishing and sending actions which are all the necessary commands to control the iRobot™ Education's Create®3 Educational Robot.
 
-### Get Started
+## Get Started
 0. Download and unzip the repository as previously [directed](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/README.md).
 
 1. From your home directory navigate to the workspace containing the package 
