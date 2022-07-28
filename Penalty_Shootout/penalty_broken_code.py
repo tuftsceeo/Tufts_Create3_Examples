@@ -1,5 +1,5 @@
 '''
-shootout_broken_example.py
+penalty_broken_code.py
 Tufts Create®3 Educational Robot Example
 by Maddie Pero
 
