@@ -1,4 +1,4 @@
-## OpenMV Cam and iRobot™ Education's Create®3 Robot 
+## OpenMV Cam and iRobot™ Education's Create®3 Robot Crossover Episode
 
 In these two examples we use an OpenMV Cam programed to communicate r,g,b values over serial and the USB-C port on the Create®3 Robot to direct the motion of the robot. 
 
