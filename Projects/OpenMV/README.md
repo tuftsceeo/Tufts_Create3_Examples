@@ -1,6 +1,6 @@
 ## OpenMV Cam and iRobot™ Education's Create®3 Robot Crossover Episode
 
-In these two examples we use an OpenMV Cam programed to communicate r,g,b values over serial and the USB-C port on the Create®3 Robot to direct the motion of the robot. 
+In these two examples we use an OpenMV Cam programmed to communicate r,g,b values over serial and the USB-C port on the Create®3 Robot to direct the motion of the robot. 
 
 The road_signs script uses the camera to recognize red, yellow and green road signs. At each color sign the robot is directed to turn in a different direction. Below
 is a sped up video demo. 
