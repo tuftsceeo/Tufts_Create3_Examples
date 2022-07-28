@@ -9,10 +9,17 @@ cells we can then change the linear and angular velocities of the wheels of the 
 
 This is an image of what my Airtable looked like. By putting 3 in for all angular velocity cells I was able to make the robot spin in a circle. 
 
-If you share your Airtable with your friends, they could drive your Create®3 robot from the other side of the world. 
+If you share your Airtable with your friends, they could drive your Create®3 robot from the other side of the world. Similar to the basic telerobot project, build a phone stand that can attach to the top of the Create®3 robot. Facetime or Zoom into your phone so you can see the environment where you are driving the robot and make it have telepresence.
 
-### Use this code
+## Get Started
+0. Download and unzip the repository as previously [directed](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/README.md).
 
-1. Add this python file to the example package folder on your virtual machine. 
-2. Add a new executable name in the entry points section of the setup.py file. 
-3. Build, install and then run the package as explained in the example package [README](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/example_package/README.md). 
+1. Navigate from your home directory to this directory 
+```
+cd Tufts_Create3_Examples-main/Projects/Airtable
+```
+2. Edit the namespace, Airtable base ID and API Key to match your's.
+3. Run the script with 
+```
+cd python3 [airtable_telerobot].py
+`
