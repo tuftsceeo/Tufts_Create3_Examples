@@ -131,12 +131,8 @@ class WallFollowActionClient(Node):
         goal_msg = WallFollow.Goal()
         print(1)
         goal_msg.follow_side = follow_side
-        print(2)
-            
         goal_msg.max_runtime = Duration(sec=10, nanosec=0)
-        print(3)
         self._action_client.wait_for_server()
-        print(4)
         return self._action_client.send_goal_async(goal_msg)
 
 def arc1(args=None):
@@ -161,14 +157,9 @@ def arc1(args=None):
     
 def wall(args=None):
     rclpy.init(args=args)
-    print(5)
-     
     wall_client = WallFollowActionClient()
-    print(6)
     wall_client.send_goal(follow_side=1, max_runtime=10)
-    print(7)
     rclpy.spin(wall_client)
-    print(8)
 
 
     
