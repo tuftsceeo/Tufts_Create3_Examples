@@ -24,7 +24,7 @@ cd Tufts_Create3_Examples-main/Projects/OpenMV
 2. Edit the namespace in the files to match your robot's namespace
 3. Run the scripts with 
 ```
-cd python3 [script_name].py
+python3 [script_name].py
 ```
 
 The script names are "road_signs" and "line_follow" . 
