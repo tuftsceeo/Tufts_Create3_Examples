@@ -20,7 +20,7 @@ https://user-images.githubusercontent.com/60265399/181576776-47f304c1-086f-4cab-
 ```
 cd Tufts_Create3_Examples-main/Projects/OpenMV
 ```
-2. Edit the namespace in the file to match your robot's namespace
+2. Edit the namespace in the files to match your robot's namespace
 3. Run the scripts with 
 ```
 cd python3 [script_name].py
