@@ -35,5 +35,5 @@ cd Tufts_Create3_Examples-main/Projects/Penalty_Shootout
 2. Edit the namespace in the file to match your robot's namespace
 3. Run the script with 
 ```
-cd python3 penalty_kick.py
+python3 penalty_kick.py
 ```
