@@ -2,14 +2,17 @@
 
 In these two examples we use an OpenMV Cam programmed to communicate r,g,b values over serial and the USB-C port on the Create®3 Robot to direct the motion of the robot. 
 
-The road_signs script uses the camera to recognize red, yellow and green road signs. At each color sign the robot is directed to turn in a different direction. Below
-is a sped up video demo. 
+The road_signs script uses the camera to recognize red, yellow and green road signs. At each color sign the robot is directed to turn in a different direction. Below is a sped up video demo. 
+
 
 https://user-images.githubusercontent.com/60265399/181616368-7205a090-473a-49e8-a43f-761d8551019d.mp4
 
 
-The linefollow script uses the camera to follow a black line on a white table top. At blue intersections along the black line the robot will stop and wait 3 seconds before proceeding.
+
+The line_follow script uses the camera to follow a black line on a white table top. At blue intersections along the black line the robot will stop and wait 3 seconds before proceeding.
 Below is a sped up video demo.
+
+
 
 https://user-images.githubusercontent.com/60265399/181576776-47f304c1-086f-4cab-9cd2-cae05ab89835.mp4
 
