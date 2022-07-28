@@ -1,8 +1,16 @@
 # Python Playground Examples
-This folder contains example python files. These files can be used in iRobot™ Education's Python Playground. The files include driving the robot using the bumpers, driving in a square, using it as an instrument, learning proportional integral control, and using IR sensors to avoid obstacles. They are meant to include many different components of the capabilities within python playground. Use these examples to write your own files to run on the Create® 3 Educational Robot. To do so, open the example .py file in this GitHub and copy the code (top left icon that looks like two square). Paste the code in the python playground (use any prewritten example they give, delete the text and paste the new code). Since the python syntax may be a bit different than what you're used to (asyncio), there are some notes on some common points of confusion surrounding this event loop structure. This framework executes each function, but it does so out of order to become more efficient  
+This folder contains example python files that can be run in iRobot™ Education's Python Playground and encapsulate many functions of the Create®3 Robot.
+Check of the comments in each file to learn more about they do. 
 
+## Get Started.
+1. Copy the code from any file in this folder. 
+2. Open any example file in [Python Playground](https://python.irobot.com/) and delete the code inside it.
+3. Paste our code into the playground. 
 
-## Events:
+## Python Explanation
+Since the python syntax may be a bit different than what you're used to (asyncio), there are some notes on some common points of confusion surrounding this event loop structure. This framework executes each function, but it does so out of order to become more efficient  
+
+### Events:
 If a function is "decorated" by @event, then once the "event" is triggered, all of those functions will occur simultaneously. For example, if multiple functions are decorated as "@event(robot.when_play)," then whenever "robot.play()" is written in the script, it will trigger all functions with that event tag. In functions used with events, you must use "async" due to the nonparallel nature. This is telling the script that we don't necessarily want to run that function right now. We want to call it when we want all the events to happen together, not in a partiuclar order. In other words, it is "asyncronous." Because of this, we don't use return values with event functions. Since all the event functions happen at the same time, we would never care to use the return value of one of them.
 
 Whenever you want a function to be decorated by @event, you must use async in front of def. Since we want to run these functions when the event tag is called, it is an asynchronous function, thus never running when we get to it in the script. For example:
@@ -27,7 +35,7 @@ Since the robot uses a few different sensors, now we can take advantage of all o
 
 We can use the normal "def" format if we want to run that function to access its return value later. See max_obstacles.py as an example.
 
-## Async:
+### Async:
 Async functions can suspend their execution before reaching return, and move to run a different function in that time. You can use async with or without an event decorator. This is when you have a function that you don't want to run immediately in the script (such as the normal "def" function) or if you want to run when the event is called. Async is used with a function that is called later, usually in an event function. Async functions can have return values. If you want to run a function where it is in the script, use def. If you want it to run asynchronously and run when you call it, used async def. If you use methods, put an "await" in front. "Await" can only be used in an async def function. For example:
 ```
 async def forward(robot):
@@ -46,7 +54,7 @@ robot.play()
 ```
 (see max_obstacles.py for full example)
 
-## Class:
+### Class:
 A function in a class is called a method. Each method receives the 'self' parameter. In the example below, the parameter "name" is stored in the property "self.name". You can have multiple classes in a script. They can be used to organize the functions in your code. For example:
 ```
 class my_robot:
@@ -56,7 +64,7 @@ class my_robot:
         print('I am ' + str(color))      
 ```
 
-## Methods:
+### Methods:
 The robot's methods are all called with await. Methods are lines that tell the robot to do specific actions. It basically just means wait for this to occur until called. Examples of what methods look like:
 ```
 robot.set_wheel_speeds(speed, speed)
