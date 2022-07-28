@@ -2,7 +2,7 @@
 This folder contains example python files that can be run in iRobot™ Education's Python Playground and encapsulate many functions of the Create®3 Robot.
 Check of the comments in each file to learn more about they do. 
 
-## Get Started.
+## Get Started
 1. Copy the code from any file in this folder. 
 2. Open any example file in [Python Playground](https://python.irobot.com/) and delete the code inside it.
 3. Paste our code into the playground. 
