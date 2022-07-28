@@ -24,6 +24,6 @@ cd Tufts_Create3_Examples-main/Projects/OpenMV
 3. Run the scripts with 
 ```
 cd python3 [script_name].py
-``
+```
 
-The script name is "stop_signs" or "line_follow" . 
+The script names are "road_signs" and "line_follow" . 
