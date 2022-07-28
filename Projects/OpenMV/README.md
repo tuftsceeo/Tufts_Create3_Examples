@@ -13,15 +13,17 @@ Below is a sped up video demo.
 https://user-images.githubusercontent.com/60265399/181576776-47f304c1-086f-4cab-9cd2-cae05ab89835.mp4
 
 ## Get Started
-0. Download and unzip the repository as previously directed.
-1. Navigate from your home directory to this directory.
-```
-cd Tufts_Create3_Examples/OpenMV
-```
-2. Change the namespace & IP address of the robot in the scripts 
-3. Run either script with the command 
-```
-python3 [script_name].py
-```
 
-The script names are "stop_signs" and "line_follow" . 
+0. Download and unzip the repository as previously [directed](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/README.md).
+
+1. Navigate from your home directory to this directory 
+```
+cd Tufts_Create3_Examples-main/Projects/OpenMV
+```
+2. Edit the namespace in the file to match your robot's namespace
+3. Run the scripts with 
+```
+cd python3 [script_name].py
+``
+
+The script name is "stop_signs" or "line_follow" . 
