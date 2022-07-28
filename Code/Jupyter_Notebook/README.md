@@ -20,7 +20,7 @@ sudo apt install jupyter-core
 ```
 3. In terminal, navigate from your home directory to this directory. 
 ```
-cd Tufts_Create3_Examples-main/Jupyter_Notebook
+cd Tufts_Create3_Examples-main/Code/Jupyter_Notebook
 ```
 4. Open the files in a browser with the following command. If the web browser does not automatically populate, click the provided link. 
 ```
