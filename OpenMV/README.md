@@ -5,10 +5,12 @@ In these two examples we use an OpenMV Cam programed to communicate r,g,b values
 The stop_signs script uses the camera to recognize red, yellow and green road signs. At each color sign the robot is directed to turn in a different direction. Below
 is a sped up video demo. 
 
-https://user-images.githubusercontent.com/60265399/181573567-21c54ab7-9497-4c4a-8034-f58b7b4c2588.mp4
+https://user-images.githubusercontent.com/60265399/181576743-21592599-682c-4d3e-ba1e-7aade335f23a.mp4
 
 The linefollow script uses the camera to follow a black line on a white table top. At blue intersections along the black line the robot will stop and wait 3 seconds before proceeding.
 Below is a sped up video demo.
+
+https://user-images.githubusercontent.com/60265399/181576776-47f304c1-086f-4cab-9cd2-cae05ab89835.mp4
 
 ## Get Started
 0. Download and unzip the repository as previously directed.
@@ -22,4 +24,4 @@ cd Tufts_Create3_Examples/OpenMV
 python3 [script_name].py
 ```
 
-The script names are "stop_signs" and "linefollow" . 
+The script names are "stop_signs" and "line_follow" . 
