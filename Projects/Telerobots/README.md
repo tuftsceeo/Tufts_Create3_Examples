@@ -2,7 +2,7 @@
 
 In this example, you will learn to control a Create®3 robot with the keyboard on your laptop. Being able to control the robot from a distance makes it teleoperational. To make it have telepresence, design a phone stand that can attach to the top of the Create®3 robot. Facetime or Zoom into your phone so you can see the environment where you are driving the robot. This allows you to feel present as your robot navigates around. 
 
-## ROS2 Commands 
+## Get Started
 
 To install the necessary package and dependencies for this example please follow the "Build Instructions" and "Intitialization Instructions" on this [PAGE](https://github.com/iRobotEducation/create3_examples). We won't use any of the files in this repo. Everything will occur in the command line of the terminal. We will just make slight changes to the parameters of the Create®3 robot and to the node arguments so that it all runs correctly. 
 
@@ -20,7 +20,7 @@ Then we can run the teleop_twist_keyboard package that is already in the ROS 2 e
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --ros-args -r __ns:=/{Namespace}
 ```
 
-## What You'll See
+### What You'll See
 
 When you run this package & executable you will see the following information in your terminal. Now you can use the keys on your keyboard to remotely control your Create®3 robot. Happy Driving!
 
