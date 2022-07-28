@@ -21,5 +21,5 @@ cd Tufts_Create3_Examples-main/Projects/Airtable
 2. Edit the namespace, Airtable base ID and API Key to match your's.
 3. Run the script with 
 ```
-cd python3 airtable_telerobot.py
+python3 airtable_telerobot.py
 ```
