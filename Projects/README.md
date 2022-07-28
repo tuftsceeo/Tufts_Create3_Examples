@@ -6,4 +6,4 @@ and some other electronics components.
 These projects have more complex coding requirements, at least a small building component, and a larger goal that the robot must accomplish. The projects
 build on each other to culminate in a final joust to the death!
 
-Check out each folder for demo videos, example code, and getting started instructions. 
+**Check out each folder for demo videos, example code, and getting started instructions.** 
