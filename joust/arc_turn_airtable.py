@@ -203,20 +203,19 @@ def arc1(args=None):
     action_client = DriveArcActionClient()
     green_flag = action_client.timer_callback()
     speed = 0.15
-    if green_flag == 'yes':
-        if (counter % 2) == 0: 
-            angle=3.14
-        else:
-            angle = -3.14
-
-        if counter == 0:
-            action_client.send_drive(green_flag)
-        counter += 1
-        time.sleep(1)
+    if (counter % 2) == 0: 
+        angle=3.1        
+    else:
+        angle = -3.14
+    
+    if counter == 0 and green_flag == 'yes':
+        action_client.send_drive(green_flag)
+    counter += 1
+    time.sleep(1)
         
         
-        action_client.send_goal(angle, radius, translate_direction, max_translation_speed)
-        rclpy.spin(action_client)
+    action_client.send_goal(angle, radius, translate_direction, max_translation_speed)
+    rclpy.spin(action_client)
 
 def turn(args=None):
     angle = 0.3
