@@ -11,5 +11,5 @@ cd Tufts_Create3_Examples-main/Projects/Joust
 2. Edit the namespace in the files to match your robot's namespace
 3. Run the scripts with 
 ```
-python3 jost.py
+python3 joust.py
 ```
