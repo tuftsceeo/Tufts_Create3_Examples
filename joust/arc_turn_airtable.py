@@ -102,15 +102,14 @@ class DriveArcActionClient(Node):
         self.get_logger().info('Result: {0}'.format(result))
     
     def timer_callback(self):
-             
-        API_KEY = ''
-        BASE_ID = 'appMrPQ9Pz1FQDQ02'
-        URL = "https://api.airtable.com/v0/" + BASE_ID + "/Create%20Telerobot?api_key=" + API_KEY    
+        
+        URL = "https://api.airtable.com/v0/appg8dW7mHbw2KULa/Start%20Status?api_key=keyRj84j6Op7C4jSW"  
         
         r = requests.get(url = URL, params = {})
 
         data = r.json()
-        return data
+        go = data['records'][0]['fields']['Status']
+        return go
 
         
 class WallFollowActionClient(Node):
@@ -204,19 +203,20 @@ def arc1(args=None):
     action_client = DriveArcActionClient()
     green_flag = action_client.timer_callback()
     speed = 0.15
-    if (counter % 2) == 0: 
-        angle=3.14
-    else:
-        angle = -3.14
+    if green_flag == 'yes':
+        if (counter % 2) == 0: 
+            angle=3.14
+        else:
+            angle = -3.14
 
-    if counter == 0:
-        action_client.send_drive(green_flag)
-    counter += 1
-    time.sleep(1)
-    
-
-    action_client.send_goal(angle, radius, translate_direction, max_translation_speed)
-    rclpy.spin(action_client)
+        if counter == 0:
+            action_client.send_drive(green_flag)
+        counter += 1
+        time.sleep(1)
+        
+        
+        action_client.send_goal(angle, radius, translate_direction, max_translation_speed)
+        rclpy.spin(action_client)
 
 def turn(args=None):
     angle = 0.3
