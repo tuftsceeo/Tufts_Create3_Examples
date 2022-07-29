@@ -140,14 +140,10 @@ class WallFollowActionClient(Node):
         print('Ready for Action')
          
         goal_msg = WallFollow.Goal()
-        print(1)
         goal_msg.follow_side = follow_side
-        print(2)
             
         goal_msg.max_runtime = Duration(sec=10, nanosec=0)
-        print(3)
         self._action_client.wait_for_server()
-        print(4)
         return self._action_client.send_goal_async(goal_msg)
         
 class RotateActionClient(Node):
@@ -213,7 +209,7 @@ def arc1(args=None):
     if counter == 0:
         action_client.send_drive()
     counter += 1
-    time.sleep(1)         
+    time.sleep(2)         
     action_client.send_goal(angle, radius, translate_direction, max_translation_speed)
     rclpy.spin(action_client)
 
