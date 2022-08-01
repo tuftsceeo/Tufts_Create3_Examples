@@ -1,3 +1,9 @@
+'''
+joust_2.py
+Tufts Create®3 Educational Robot Example
+by Kate Wujciak
+In this example we avoid jousting barrels by using the bumpers. 
+'''
 import sys
 import rclpy
 import time
@@ -117,7 +123,6 @@ class ArcTurnClient(Node):
         self._get_result_future.add_done_callback(self.arc_result_callback)
         
     def turn_response_callback(self, future):
-        print('5')
 
         goal_handle = future.result()
         if not goal_handle.accepted:
@@ -142,14 +147,11 @@ class ArcTurnClient(Node):
         self._get_result_future.add_done_callback(self.drive_result_callback)
 
     def arc_result_callback(self, future):
-        print('arc result callback')
         result = future.result().result
         self.get_logger().info('Result: {0}'.format(result))
         
         
     def turn_result_callback(self, future):
-        print('turn result callback')
-
         result = future.result().result
         self.get_logger().info('Result: {0}'.format(result))
         #self.send_arc()
@@ -169,14 +171,11 @@ class ArcTurnClient(Node):
         
 
 def main(args=None):
-    print('main')
-
     rclpy.init(args=args)
     
     arcturn_action_client = ArcTurnClient()
     speed = 0.15
     arcturn_action_client.send_drive()
-    print('9')
     time.sleep(4)
     arcturn_action_client.send_arc()
 
