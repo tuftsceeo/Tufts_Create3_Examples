@@ -1,3 +1,9 @@
+'''
+joust_b.py
+Tufts Create®3 Educational Robot Example
+by Kate Wujciak
+In this example we avoid jousting barrels using the bumpers.
+'''
 import sys
 import rclpy
 import time
