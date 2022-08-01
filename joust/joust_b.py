@@ -15,6 +15,7 @@ barrels = 4
 dist = 1
 count = int(barrels - 1)
 max_rotation_speed=0.5
+namespace = '[Namespace]'
 
 class ArcTurnClient(Node):
 
@@ -23,18 +24,11 @@ class ArcTurnClient(Node):
         
 
         super().__init__('arcturn_action_client')
-        self.drive = ActionClient(self, DriveDistance, 'Ygritte/drive_distance')
-        print(12)
-          
-        self.turn = ActionClient(self, RotateAngle, 'Ygritte/rotate_angle')
-        print('13a') 
-        self.arc = ActionClient(self, DriveArc, 'Ygritte/drive_arc')  
-        print('13b')
+        self.drive = ActionClient(self, DriveDistance, namespace + '/drive_distance')          
+        self.turn = ActionClient(self, RotateAngle, namespace + '/rotate_angle')
+        self.arc = ActionClient(self, DriveArc, namespace + '/drive_arc')  
         self.bump = self.create_subscription(
-            HazardDetectionVector, 'Ygritte/hazard_detection', self.listener_callback, qos_profile_sensor_data)
-        print('13c')
-        
-        print(14)
+            HazardDetectionVector, namespace + '/hazard_detection', self.listener_callback, qos_profile_sensor_data)
 
         self.i = 0
         
@@ -69,16 +63,12 @@ class ArcTurnClient(Node):
         goal_msg.radius = radius
         goal_msg.translate_direction = translate_direction
         
-        print(4)
         self.arc.wait_for_server()
-        print(5)
         self._send_goal_future = self.arc.send_goal_async(goal_msg)
-        print(6)
         self._send_goal_future.add_done_callback(self.arc_response_callback)
         
         
     def send_turn(self, max_rotation_speed, angle):
-        print('3')
         
         goal_msg_turn = RotateAngle.Goal()
         goal_msg_turn.angle = angle
@@ -90,7 +80,6 @@ class ArcTurnClient(Node):
         
 
     def arc_response_callback(self, future):
-        print('arc response')
         goal_handle = future.result()
         if not goal_handle.accepted:
             self.get_logger().info('Goal rejected :(')
@@ -103,7 +92,6 @@ class ArcTurnClient(Node):
         self._get_result_future.add_done_callback(self.arc_result_callback)
         
     def turn_response_callback(self, future):
-        print('5')
 
         goal_handle = future.result()
         if not goal_handle.accepted:
@@ -117,18 +105,15 @@ class ArcTurnClient(Node):
         
 
     def arc_result_callback(self, future):
-        print('6')
         result = future.result().result
         self.get_logger().info('Result: {0}'.format(result))
-        
-        #self.send_turn()
-        
+  
+
     def turn_result_callback(self, future):
         print('7')
 
         result = future.result().result
         self.get_logger().info('Result: {0}'.format(result))
-        #self.send_arc()
         if self.i < barrels:
             self.i += 1
             self.send_arc()
@@ -136,20 +121,12 @@ class ArcTurnClient(Node):
             print('Shutting down action client node.')
             rclpy.shutdown()
 
-        
-        
+             
 
 def main(args=None):
-    print('8')
-
     rclpy.init(args=args)
     
     arcturn_action_client = ArcTurnClient()
-    print('9')
-
-    
-    
-    print(10)
     arcturn_action_client.send_arc()
 
     try:
