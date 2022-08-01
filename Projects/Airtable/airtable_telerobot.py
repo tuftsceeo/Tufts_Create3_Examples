@@ -25,7 +25,7 @@ from geometry_msgs.msg import Vector3
 '''
 edit the namespace to match the namespace of your robot
 '''
-namespace = '[Namespace]'
+namespace = '/[Namsepace]'
 
 
 class WheelVel(Node):
@@ -66,7 +66,7 @@ class WheelVel(Node):
         
         API_KEY = ''
         BASE_ID = 'appMrPQ9Pz1FQDQ02'
-        URL = "https://api.airtable.com/v0/" + BASE_ID + "/Create%20Telerobot?api_key=" + API_KEY
+        URL = 'https://api.airtable.com/v0/appMrPQ9Pz1FQDQ02/Create%20Telerobot?api_key=keyRj84j6Op7C4jSW'
         
         
         r = requests.get(url = URL, params = {})
@@ -78,12 +78,13 @@ class WheelVel(Node):
     	
     	
 
-    def set_wheels(self, data):
+    def set_wheels(self):
         '''
         In this function we define the messages we want to publish and then publish them to the cmd_vel topic. We must define both angular and linear velocities to 
         send to the wheel of the robot. 
         '''
         
+        data = self.timer_callback()
         
         self.linear.x = float(data['records'][0]['fields']['X'])
         self.linear.y = float(data['records'][0]['fields']['Y'])
@@ -111,12 +112,10 @@ def main(args=None):
     wheel_vel = WheelVel()
     
     '''
-    We then can call the timer_callback() function to get the air table information. And call the set_wheels() function
-    in a while loop to continually publish data to the topic.
+    We call the set_wheels() function in a while loop to continually publish data to the topic.
     '''
-    data = wheel_vel.timer_callback()
     while True:
-    	wheel_vel.set_wheels(data)
+        wheel_vel.set_wheels()
 
     '''
     The node is "spun" so the callbacks can be called.
