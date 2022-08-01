@@ -25,7 +25,7 @@ from geometry_msgs.msg import Vector3
 '''
 edit the namespace to match the namespace of your robot
 '''
-namespace = '/[Namsepace]'
+namespace = '/[Namespace]'
 
 
 class WheelVel(Node):
@@ -51,8 +51,8 @@ class WheelVel(Node):
         '''
         The timer allows the callback to execute every 1 seconds, with a counter iniitialized.
         '''
-        timer_period = 1
-        self.timer = self.create_timer(timer_period, self.timer_callback)
+        #timer_period = 2
+        #self.timer = self.create_timer(timer_period, self.timer_callback)
         
         '''
         define messag types to be used later 
@@ -61,12 +61,11 @@ class WheelVel(Node):
         self.linear = Vector3()
         self.angular = Vector3()
         
-    def timer_callback(self):
-        ''' This function will be called every second with the timer. It makes a get request to the airtable API which will tell us how fast to spin the wheels'''
+    def get_speed(self):
+        ''' This function makes a get request to the airtable API which will tell us how fast to spin the wheels'''
         
-        API_KEY = ''
-        BASE_ID = 'appMrPQ9Pz1FQDQ02'
-        URL = 'https://api.airtable.com/v0/appMrPQ9Pz1FQDQ02/Create%20Telerobot?api_key=keyRj84j6Op7C4jSW'
+        ''' Put the URL for your Airtable Base here'''
+        URL = ''
         
         
         r = requests.get(url = URL, params = {})
@@ -74,6 +73,7 @@ class WheelVel(Node):
         The get request data comes in as a json package. We will convert this json package to a python dictionary so that it can be parsed
         '''
         data = r.json()
+        print(data)
         return data
     	
     	
@@ -84,19 +84,21 @@ class WheelVel(Node):
         send to the wheel of the robot. 
         '''
         
-        data = self.timer_callback()
+        data = self.get_speed()
         
-        self.linear.x = float(data['records'][0]['fields']['X'])
-        self.linear.y = float(data['records'][0]['fields']['Y'])
-        self.linear.z = float(data['records'][0]['fields']['Z'])
-        
-        self.angular.x = float(data['records'][1]['fields']['X'])
-        self.angular.y = float(data['records'][1]['fields']['Y'])
-        self.angular.z = float(data['records'][1]['fields']['Z'])
-        
-        self.wheels.linear = self.linear
-        self.wheels.angular = self.angular
-        self.wheels_publisher.publish(self.wheels)
+        if len(data['records'][0]['fields']) and len(data['records'][1]['fields']) > 3:
+            
+            self.linear.x = float(data['records'][0]['fields']['X'])
+            self.linear.y = float(data['records'][0]['fields']['Y'])
+            self.linear.z = float(data['records'][0]['fields']['Z'])
+            
+            self.angular.x = float(data['records'][1]['fields']['X'])
+            self.angular.y = float(data['records'][1]['fields']['Y'])
+            self.angular.z = float(data['records'][1]['fields']['Z'])
+            
+            self.wheels.linear = self.linear
+            self.wheels.angular = self.angular
+            self.wheels_publisher.publish(self.wheels)
 
 
 
@@ -112,7 +114,8 @@ def main(args=None):
     wheel_vel = WheelVel()
     
     '''
-    We call the set_wheels() function in a while loop to continually publish data to the topic.
+    We then can call the timer_callback() function to get the air table information. And call the set_wheels() function
+    in a while loop to continually publish data to the topic.
     '''
     while True:
         wheel_vel.set_wheels()
