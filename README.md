@@ -7,12 +7,12 @@ If you run into errors setting up ROS 2 search [here](https://katewujciak.wixsit
 ## Get Started
 1. If you are not currently in your virtual machine, go to that now. Once you are there, open [this link](https://github.com/brianabouchard/Tufts_Create3_Examples) in your virtual machine. Download this repository (on your virtual machine). 
     - Click the green "Code" button then "Download ZIP"
-2. Unzip the repository & move it to the **Home** directory of your virtual machine. Double check it is still named "Tufts_Create3_Examples."
+2. Unzip the repository & move it to the **Home** directory of your virtual machine.
 3. Follow the READMEs in the other folders to test out the code.
 
 ## Generally Important Information 
 
-In any file, if a piece of code is written inside {} brackets it means you should fill it out with your unique namespace/package name/workspace etc. Do not include the {} when you run the code.
+In any file, if a piece of code is written inside {} or [] brackets it means you should fill it out with your unique namespace/package name/workspace etc. Do not include the {} or [] when you run the code.
 
 For example, if the namespace of my Create® 3 robot is JonSnow. Then I would want to modify the code accordingly. For example:
 ```
