@@ -1,3 +1,12 @@
+'''
+airtable_joust.py
+Tufts Create®3 Educational Robot Example
+by Maddie Pero and Kate Wujciak
+
+In this example we navigate the Create®3 robot through a serials of barrels before executing a joust over a wall. The start of the joust is
+signalled by a flag in airtable. 
+'''
+
 import sys
 import rclpy
 import time
@@ -22,7 +31,7 @@ radius = (distance/75) + 0.16
 print(radius)
 translate_direction=1
 max_translation_speed=0.3
-namespace = 'Drogon'
+namespace = '[Namespace]'
 counter = 0
 
 class DriveArcActionClient(Node):
