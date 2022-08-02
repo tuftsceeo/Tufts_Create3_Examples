@@ -11,6 +11,6 @@ cd Tufts_Create3_Examples-main/Projects/Joust
 2. Edit the namespace in the files to match your robot's namespace
 3. Run the scripts with 
 ```
-python3 [file_name].py
+python3 [script_name].py
 ```
-the file_names are "airtable_joust" and "camera_joust"
+the script names are "airtable_joust" and "camera_joust"
