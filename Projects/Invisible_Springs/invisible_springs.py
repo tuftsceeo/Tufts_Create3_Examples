@@ -26,7 +26,7 @@ from geometry_msgs.msg import Vector3
 define global variables
 '''
 
-namespace = '/Drogon'
+namespace = '[Namespace]'
 
 max_speed = 4
 threshold = 1000
