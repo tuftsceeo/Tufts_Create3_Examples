@@ -47,7 +47,7 @@ wall. Because of this the easiest way to reduce speed as we approach the wall is
 async def when_play(robot):
     while True:
         error = await sensors(robot)
-        print(sensor)
+        print(error)
         if error != 0: 
             speed = max_speed/error
         else:
