@@ -29,7 +29,7 @@ distance = 10
 radius = (distance/75) + 0.16
 translate_direction=1
 max_translation_speed=0.3
-namespace = 'NightKing'
+namespace = '[Namespace]'
 counter = 0
 
 CREATE_IP = "10.245.91.235"
