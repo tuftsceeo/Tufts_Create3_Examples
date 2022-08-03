@@ -1,5 +1,7 @@
 # The FINAL Joust 
 
+![Joust 1 GIF - Made with Clipchamp (1)](https://user-images.githubusercontent.com/60265399/182504731-0466b31a-adb5-4968-b35e-55997240c966.gif) ![Joust 2 GIf - Made with Clipchamp (1)](https://user-images.githubusercontent.com/60265399/182507073-9f3c62f0-9212-4312-b65b-28d758f0b1dd.gif)
+
 ## Get Started
 
 0. Download and unzip the repository as previously [directed](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/README.md).
