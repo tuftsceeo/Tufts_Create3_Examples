@@ -5,6 +5,9 @@ This project is an example of creating a proportional controller for the iRobotâ
 The goal of the script is to have one robot maintain a set distance from the robot driving in front of it using the IR sensors. Typically a proportional controller
 follows the format of P = P0 + error*Kp.
 
+![Invisible Springs GIF](https://user-images.githubusercontent.com/60265399/182504673-8662b67f-873a-4e95-8c84-8faffcda2840.gif)
+
+
 ## Get Started
 0. Download and unzip the repository as previously [directed](https://github.com/brianabouchard/Tufts_Create3_Examples/blob/main/README.md).
 
