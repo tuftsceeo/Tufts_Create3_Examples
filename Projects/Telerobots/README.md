@@ -2,6 +2,10 @@
 
 In this example, you will learn to control a Create®3 robot with the keyboard on your laptop. Being able to control the robot from a distance makes it teleoperational. To make it have telepresence, design a phone stand that can attach to the top of the Create®3 robot. Facetime or Zoom into your phone so you can see the environment where you are driving the robot. This allows you to feel present as your robot navigates around. 
 
+
+![Telerobot GIF 1](https://user-images.githubusercontent.com/60265399/182504246-03d0e25c-fb82-45c7-a969-cd620bf02197.gif)    ![Telerobot GIF 2](https://user-images.githubusercontent.com/60265399/182504286-42f02cf1-b7b2-4ce7-90f7-6a0a48b5b105.gif)
+
+
 ## Get Started
 
 0. install the necessary package and dependencies for this example please follow the "Build Instructions" and "Intitialization Instructions" on this [PAGE](https://github.com/iRobotEducation/create3_examples). All we need for this project is the command line of the terminal. We will just make slight changes to the parameters of the Create®3 robot and to the node arguments so that it all runs correctly. 
