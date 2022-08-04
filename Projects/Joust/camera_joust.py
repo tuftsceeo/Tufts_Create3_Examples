@@ -4,7 +4,7 @@ Tufts Create®3 Educational Robot Example
 by Maddie Pero and Kate Wujciak
 
 In this example we navigate the Create®3 robot through a serials of barrels before executing a joust over a wall. The start of the joust is
-signalled by a physical flag detected by an OpenMV camera. 
+signaled by a physical flag detected by an OpenMV camera. 
 '''
 
 import sys
