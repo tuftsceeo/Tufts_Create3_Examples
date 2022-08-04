@@ -1,3 +1,9 @@
+'''
+joust_base_code.py
+Tufts Create®3 Educational Robot Example
+by Kate Wujciak
+In this example the robot drives "into the arena" (forward), does two arcs around barrels, rotates, then does a wall follow. 
+'''
 import sys
 import rclpy
 import time
