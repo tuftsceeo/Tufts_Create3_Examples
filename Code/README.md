@@ -5,4 +5,4 @@ your programming skills from the basic Python Web Playground through ROS 2 packa
 
 The ideal progression is to start with the Python_Playground folder, move to the Jupyter_Notebook folder, and then to the Package folder. 
 
-**Check out each folder to see what the scrips do and for getting started instructions.**
+**Check out each folder to see what the scripts do and for getting started instructions.**
