@@ -95,12 +95,10 @@ class IRSubscriber(Node):
         
     def listener_callback(self, msg:IrIntensityVector):
         '''
-        This is the function that runs everytime it gets a msg from the robot. 
-        Earlier, in the initialized function, we told it 
+        Earlier, in the initialized function, we told it to run this function when it recieves a message.
         The subscriber's callback listens and as soon as it receives the message,
         this function runs. 
-        This callback function is basically printing what it hears. It runs the data
-        it receives in your terminal (msg).  
+        This callback function is basically printing what it hears, with the help of the function above. 
         '''
         print('Now listening to IR sensor readings it hears...')
 
@@ -109,18 +107,20 @@ class IRSubscriber(Node):
 
 def main(args=None):
     '''
-    This line initializes the rclpy library. 
+    This main function is outside of the class.
+    This line initializes the rclpy library, which is necessary in every main function that you write. 
     '''
     rclpy.init(args=args)
-    '''
-    This creates the node.
-    '''
+
     IR_subscriber = IRSubscriber()
     '''
     Now we'll create the node we had earlier defined with our IRSubscriber(). 
     The node is then "spun" (start subscribing to the topic) so its callbacks are called.
     '''
     print('Callbacks are called.')
+    '''
+    this keyboard interupt is how we'll tell it to stop recieving data from the robot. 
+    '''
     try:
         rclpy.spin(IR_subscriber)
     except KeyboardInterrupt:
@@ -133,7 +133,9 @@ def main(args=None):
     	print("Done")
     	IR_subscriber.destroy_node()
     	rclpy.shutdown()
-
+'''
+navigate to the directory that this file is in. Then simply write python3 sub_ir.py, which is an easy way to run code, and unique to python. 
+'''
 
 if __name__ == '__main__':
     main()
