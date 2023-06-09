@@ -207,11 +207,7 @@ def forward(args=None):
 
     action_client.send_goal(dist, speed)
     rclpy.spin(action_client)
-    '''
-    This wait statement is not necessary,
-    I just added it to slow down the process.
-    '''
-    time.sleep(0.5)
+
     
 def turn(args=None):
     angle = 1.57
@@ -228,7 +224,6 @@ def turn(args=None):
 
     action_client.send_goal(angle, speed)
     rclpy.spin(action_client)
-    time.sleep(0.5)   
 
 def main(args=None):
     '''
